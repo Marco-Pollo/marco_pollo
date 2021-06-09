@@ -1,6 +1,6 @@
-#MarcoPollo
+# MarcoPollo
 
-Grundlegende Daten der Pollentypen im JSON-Fromat:
+## Grundlegende Daten der Pollentypen im JSON-Fromat
 ```
 [
 	{
@@ -25,7 +25,7 @@ Grundlegende Daten der Pollentypen im JSON-Fromat:
 ]
 ```
 
-Gespeicherte Auswahl des Users (JSON-Fromat):
+## Gespeicherte Auswahl des Users (JSON-Fromat)
 ```
 [id: number, ...]
 ```
@@ -38,7 +38,7 @@ Grundlagen für die Entwicklung der Web-App:
 		- Datenstruktur nach Redux (react-redux)
 		- Nutzung von "redux-toolkit" für Datennormalisierung im Redux-Store & Unsetung weiterer Redux-Konventionen
 
-Projektstruktur:
+## Projektstruktur
 ```bash
 src
 ├───components
