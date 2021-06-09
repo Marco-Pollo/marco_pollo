@@ -36,7 +36,7 @@
 	- Paketverwaltung per [npm](https://www.npmjs.com/)
 	- [React Framework](https://reactjs.org/)
 		- Datenstruktur nach Redux ([react-redux](https://react-redux.js.org/))
-		- Nutzung von "[redux-toolkit](https://redux-toolkit.js.org/)" für Datennormalisierung im Redux-Store & Unsetung weiterer Redux-Konventionen
+		- Nutzung von "[redux-toolkit](https://redux-toolkit.js.org/)" für Datennormalisierung im Redux-Store & Umsetung weiterer Redux-Konventionen
 
 ## Projektstruktur
 ```bash
