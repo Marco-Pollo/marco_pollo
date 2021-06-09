@@ -1,5 +1,5 @@
 Grundlegende Daten der Pollentypen im JSON-Fromat:
-´´´
+```
 [
 	{
 		id: number,
@@ -21,12 +21,12 @@ Grundlegende Daten der Pollentypen im JSON-Fromat:
 	},
 	...
 ]
-´´´
+```
 
 Gespeicherte Auswahl des Users (JSON-Fromat):
-´´´
+```
 [id: number, ...]
-´´´
+```
 
 Grundlagen für die Entwicklung der Web-App:
 - JavaScript
@@ -37,7 +37,7 @@ Grundlagen für die Entwicklung der Web-App:
 		- Nutzung von "redux-toolkit" für Datennormalisierung im Redux-Store & Unsetung weiterer Redux-Konventionen
 
 Projektstruktur:
-´´´
+```bash
 src
 ├───components
 │   ├───headline
@@ -64,4 +64,4 @@ src
 │		...
 └───utils
         ...
-´´´
+```
