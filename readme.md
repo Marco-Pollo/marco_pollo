@@ -30,7 +30,7 @@
 [id: number, ...]
 ```
 
-Grundlagen für die Entwicklung der Web-App:
+## Grundlagen für die Entwicklung der Web-App:
 - [JavaScript](https://developer.mozilla.org/de/docs/Web/JavaScript)
 	- [TypeScript](https://www.typescriptlang.org/) (Typisierung von JavaScript)
 	- Paketverwaltung per [npm](https://www.npmjs.com/)
