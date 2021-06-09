@@ -46,7 +46,6 @@ src
 │   │       Headline.tsx
 │   │		headline.scss
 │   └───...
-│
 ├───views
 │   │   App.tsx
 │   ├───landing-page
