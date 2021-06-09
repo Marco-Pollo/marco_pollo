@@ -31,12 +31,12 @@
 ```
 
 Grundlagen für die Entwicklung der Web-App:
-- JavaScript
-	- TypeScript (Typisierung von JavaScript)
-	- Paketverwaltung per npm
-	- React Framework
-		- Datenstruktur nach Redux (react-redux)
-		- Nutzung von "redux-toolkit" für Datennormalisierung im Redux-Store & Unsetung weiterer Redux-Konventionen
+- [JavaScript](https://developer.mozilla.org/de/docs/Web/JavaScript)
+	- [TypeScript](https://www.typescriptlang.org/) (Typisierung von JavaScript)
+	- Paketverwaltung per [npm](https://www.npmjs.com/)
+	- [React Framework](https://reactjs.org/)
+		- Datenstruktur nach Redux ([react-redux](https://react-redux.js.org/))
+		- Nutzung von "[redux-toolkit](https://redux-toolkit.js.org/)" für Datennormalisierung im Redux-Store & Unsetung weiterer Redux-Konventionen
 
 ## Projektstruktur
 ```bash
@@ -69,4 +69,4 @@ src
 ```
 
 ## Nutzerdaten Speicherung / Pushnachrichten
-Das Speichern der Nutzerdaten und senden von Pushnachrichten wird über Firebase erfolgen.
+Das Speichern der Nutzerdaten und senden von Pushnachrichten wird über [Firebase](https://firebase.google.com/) erfolgen.
