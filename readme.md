@@ -1,3 +1,5 @@
+#MarcoPollo
+
 Grundlegende Daten der Pollentypen im JSON-Fromat:
 ```
 [
@@ -65,3 +67,6 @@ src
 └───utils
         ...
 ```
+
+## Nutzerdaten Speicherung / Pushnachrichten
+Das Speichern der Nutzerdaten und senden von Pushnachrichten wird über Firebase erfolgen.
