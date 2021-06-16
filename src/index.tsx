@@ -13,8 +13,7 @@ const {
 } = pkg as Package;
 
 const {
-    externalName,
-    subproject
+    externalName
 } = project;
 
 const render = (Component: JSXElementConstructor<Record<string, never>>) => {
@@ -33,7 +32,7 @@ const init = () => {
         const date = new Date(process.env.BUILD_DATE as string);
         console.log(
             // eslint-disable-next-line max-len
-            `${externalName}${subproject ? ` ${subproject}` : ''} v${version} (${date.getDate()}.${date.getMonth()}.${date.getFullYear()}, ${date.getHours()}:${date.getMinutes()})`
+            `${externalName} v${version} (${date.getDate()}.${date.getMonth()}.${date.getFullYear()}, ${date.getHours()}:${date.getMinutes()})`
         );
         render(App);
     } catch (e) {
