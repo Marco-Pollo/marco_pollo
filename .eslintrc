@@ -4,9 +4,6 @@
     "jquery": false,
     "es6": true
   },
-  "globals": {
-    "chayns": true
-  },
   "parser": "@typescript-eslint/parser",
   "parserOptions": {
     "project": "./tsconfig.json"

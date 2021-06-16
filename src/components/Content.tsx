@@ -7,7 +7,7 @@ const Content = () => {
 
     return (
         <div className='content'>
-            This is the content of your chayns application
+            This is the content of your application
         </div>
     );
 };
