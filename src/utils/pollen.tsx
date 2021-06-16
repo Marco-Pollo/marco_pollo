@@ -4,7 +4,6 @@ export const GetScoreForDay = (pollen: Array<Pollen>, day: Date): { score: numbe
     let score = 0;
     let pollenCount = 0;
     pollen.forEach((p) => {
-        console.log('PPP', p, score, pollenCount);
         const light = IsBetweenDays(p.times.light.start, p.times.light.end, day);
         const mild = IsBetweenDays(p.times.light.start, p.times.light.end, day);
         const hard = IsBetweenDays(p.times.light.start, p.times.light.end, day);
@@ -12,7 +11,6 @@ export const GetScoreForDay = (pollen: Array<Pollen>, day: Date): { score: numbe
         score += (light && 1) + (mild && 2) + (hard && 3);
         // @ts-expect-error it's faster
         pollenCount += light || mild || hard;
-        console.log('PPP_A', p, score, pollenCount);
     });
     return { score, pollen: pollenCount };
 };
