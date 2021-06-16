@@ -3,15 +3,11 @@ import './calendar.scss';
 import { DatePicker } from '@material-ui/pickers';
 
 const Calendar: FunctionComponent<Record<string, never>> = () => {
-    const [date, setDate] = useState<Date>(new Date());
+    const [score, setScore] = useState<number>(0);
 
     return (
-        <div className='pollen-calendar'>
-            <DatePicker
-                variant="static"
-                value={date}
-                onChange={setDate}
-            />
+        <div className='pollen-score'>
+            {score}
         </div>
     );
 };
