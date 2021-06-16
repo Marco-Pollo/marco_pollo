@@ -1,7 +1,12 @@
-import React, {memo} from 'react';
+import React, { memo } from 'react';
+import LearnMoreButton from '../../components/learn-more-button/LearnMoreButton';
+import GetStartedButton from '../../components/get-started-button/GetStartedButton';
 
 const HomeView = () => (
-    <p>Home</p>
+    <div>
+        <LearnMoreButton />
+        <GetStartedButton />
+    </div>
 );
 
 HomeView.displayName = 'HomeView';
