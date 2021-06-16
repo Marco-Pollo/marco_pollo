@@ -1,7 +1,12 @@
 $image: 'https://wallpaperboat.com/wp-content/uploads/2019/12/foggy-forest-01.jpg';
 
 .home-view {
+    overflow-y: scroll;
+    height: 100vh;
+    scroll-snap-type: y mandatory;
+
     &__view-port {
+        scroll-snap-align: start;
         display: grid;
         height: 100vh;
         place-items: center;
