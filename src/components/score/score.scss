@@ -1,3 +1,11 @@
 .pollen-score {
+    display: flex;
+    justify-content: center;
+    align-items: end;
 
+    &_number {
+    }
+    &_text {
+        margin-bottom: 7px !important;
+    }
 }
