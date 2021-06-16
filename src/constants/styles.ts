@@ -9,5 +9,9 @@ export const useStyles = makeStyles((theme) => ({
     },
     typography: {
         textTransform: 'none'
+    },
+    menuLink: {
+        textDecoration: 'none',
+        color: 'inherit'
     }
 }));
