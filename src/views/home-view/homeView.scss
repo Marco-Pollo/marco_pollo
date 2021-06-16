@@ -1,0 +1,15 @@
+.home-view__button-container {
+    display: grid;
+    place-items: center;
+
+    .home-view__button {
+        max-width: 300px;
+        width: 70%;
+        margin-top: 20px;
+    }
+}
+
+.home-view__headline {
+    padding-top: 20%;
+    padding-bottom: 20%;
+}

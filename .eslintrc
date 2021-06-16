@@ -150,7 +150,7 @@
     ]
   },
   "extends": [
-    "@chayns-toolkit",
+    "airbnb",
     "plugin:@typescript-eslint/recommended"
   ]
 }
