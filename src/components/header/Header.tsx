@@ -15,7 +15,7 @@ const Header: FunctionComponent = () => {
 
     return (
         <>
-            <AppBar className={`header ${header}`} position="static">
+            <AppBar className={`header ${header}`} position="sticky">
                 <Toolbar className="toolbar">
                     <Button
                         href="/"

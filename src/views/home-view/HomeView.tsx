@@ -6,17 +6,21 @@ import { Typography } from '@material-ui/core';
 import './homeView.scss';
 
 const HomeView = () => (
-    <div className="home-view">
+    <div className='home-view'>
         <Header />
-        <Typography variant='h2' align='center' className='home-view__headline'>
-            MarcoPollo to empower your daily life
-        </Typography>
-        <div className='home-view__button-container'>
-            <div className="home-view__button">
-                <LearnMoreButton />
-            </div>
-            <div className="home-view__button">
-                <GetStartedButton />
+        <div className='home-view__view-port home-view__view-port--home'>
+            <Typography variant='h2' align='center' className='home-view__headline'>
+                MarcoPollo to empower your daily life
+            </Typography>
+        </div>
+        <div className='home-view__view-port'>
+            <div className='home-view__button-container'>
+                <div className='home-view__button'>
+                    <LearnMoreButton />
+                </div>
+                <div className='home-view__button'>
+                    <GetStartedButton />
+                </div>
             </div>
         </div>
     </div>

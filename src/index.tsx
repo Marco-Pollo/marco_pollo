@@ -8,12 +8,14 @@ import { Provider } from 'react-redux';
 import store from './redux-modules/store';
 import { loadCategories } from './redux-modules/categories/categoriesActions';
 import { loadPollen } from './redux-modules/pollen/pollenActions';
+import CssBaseline from '@material-ui/core/CssBaseline';
 import './index.css';
 
 const render = () => {
     ReactDOM.render(
         <React.StrictMode>
             <MuiThemeProvider theme={theme}>
+                <CssBaseline />
                 <Provider store={store}>
                     <App />
                 </Provider>

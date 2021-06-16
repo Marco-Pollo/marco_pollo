@@ -1,15 +1,26 @@
-.home-view__button-container {
-    display: grid;
-    place-items: center;
+$image: 'https://wallpaperboat.com/wp-content/uploads/2019/12/foggy-forest-01.jpg';
 
-    .home-view__button {
-        max-width: 300px;
-        width: 70%;
-        margin-top: 20px;
+.home-view {
+    &__view-port {
+        display: grid;
+        height: 100vh;
+        place-items: center;
+
+        &--home {
+            margin-top: -64px;
+            background-image: url($image);
+            background-position: center;
+            background-size: cover;
+        }
     }
-}
 
-.home-view__headline {
-    padding-top: 20%;
-    padding-bottom: 20%;
+    &__button {
+        display: grid;
+        place-items: center;
+
+        .home-view__button {
+            max-width: 300px;
+            margin-top: 20px;
+        }
+    }
 }
