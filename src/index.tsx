@@ -1,10 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
+import { MuiThemeProvider } from '@material-ui/core';
 import App from './views/App';
 import reportWebVitals from './reportWebVitals';
-import { MuiThemeProvider } from '@material-ui/core';
 import theme from './constants/theme';
+import './index.css';
 
 ReactDOM.render(
   <React.StrictMode>
