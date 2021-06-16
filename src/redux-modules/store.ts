@@ -6,9 +6,11 @@ import {
 import { createLogger } from 'redux-logger';
 import { IS_DEVELOPMENT, IS_PRODUCTION } from '../constants/environment';
 import categoriesSlice from './categories/categoriesSlice';
+import pollenSlice from './pollen/pollenSlice';
 
 const rootReducer = combineReducers({
     categories: categoriesSlice,
+    pollen: pollenSlice,
 });
 
 const reduxLogger = createLogger({
