@@ -1,14 +1,24 @@
 import React, {memo} from 'react';
 // @ts-ignore
 import {Route, Switch} from "react-router-dom";
+import HomeView from "./home-view/HomeView";
+import ResultView from "./result-view/ResultView";
+import SelectView from "./select-view/SelectView";
+import AboutView from "./about-view/AboutView";
 
 const App = () => (
     <Switch>
         <Route path="/">
-            <p>Home</p>
+            <HomeView/>
         </Route>
         <Route path="/about">
-            <p>About</p>
+            <AboutView/>
+        </Route>
+        <Route path="/select">
+            <SelectView/>
+        </Route>
+        <Route path="/result">
+            <ResultView/>
         </Route>
     </Switch>
 );
