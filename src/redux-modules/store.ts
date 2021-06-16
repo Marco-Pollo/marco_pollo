@@ -5,10 +5,10 @@ import {
 } from '@reduxjs/toolkit';
 import { createLogger } from 'redux-logger';
 import { IS_DEVELOPMENT, IS_PRODUCTION } from '../constants/environment';
-import boardReducer from './board/boardSlice';
+import categoriesSlice from './categories/categoriesSlice';
 
 const rootReducer = combineReducers({
-    board: boardReducer,
+    categories: categoriesSlice,
 });
 
 const reduxLogger = createLogger({
