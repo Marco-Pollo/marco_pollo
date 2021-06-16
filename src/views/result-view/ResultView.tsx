@@ -1,10 +1,13 @@
 import React, { memo } from 'react';
 import Header from '../../components/header/Header';
+import Calendar from '../../components/calendar/Calendar';
+import Score from '../../components/score/Score';
 
 const ResultView = () => (
     <>
         <Header />
-        <p>Result</p>
+        <Calendar />
+        <Score />
     </>
 );
 
