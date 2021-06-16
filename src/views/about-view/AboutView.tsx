@@ -1,7 +1,11 @@
-import React, {memo} from 'react';
+import React, { memo } from 'react';
+import Header from '../../components/header/Header';
 
 const AboutView = () => (
-    <p>About</p>
+    <>
+        <Header />
+        <p>About</p>
+    </>
 );
 
 AboutView.displayName = 'AboutView';
