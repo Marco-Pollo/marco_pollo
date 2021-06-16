@@ -1,11 +1,10 @@
 {
     "name": "marco_pollo",
     "version": "0.0.1",
-    "description": "The frontend of a application",
+    "description": "The frontend of an application",
     "project": {
         "internalName": "MarcoPollo",
         "externalName": "MarcoPollo",
-        "subproject": null,
         "strictLogging": false
     },
     "private": true,
