@@ -23,15 +23,20 @@ const Calendar: FunctionComponent<Record<string, never>> = () => {
                         (day, selectedDate, dayInCurrentMonth, dayComponent) => {
                             const score = GetScoreForDay(pollen.ids.map((id) => pollen.entities[id]!), day as Date);
                             const v = score.score / score.pollen;
+                            let style = {};
 
-                            if (v < 2)
-                                dayComponent.props.style = { ...dayComponent.props.style, backgroundColor: 'yellow' };
+                            /*if (v < 2)
+                                style = { backgroundColor: 'yellow' };
                             else if (v < 3)
-                                dayComponent.props.style = { ...dayComponent.props.style, backgroundColor: 'orange' };
-                            else
-                                dayComponent.props.style = { ...dayComponent.props.style, backgroundColor: 'red' };
+                                style = { backgroundColor: 'orange' };
+                            else if (v > 3)
+                                style = { backgroundColor: 'red' };*/
 
-                            return dayComponent;
+                            return (
+                                <div className="pollen-calendar_date" style={style}>
+                                    {dayComponent}
+                                </div>
+                            );
                         }
                     }
                 />
