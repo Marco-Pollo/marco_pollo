@@ -10,11 +10,14 @@ const useStyles = makeStyles((theme) => ({
     header: {
         backgroundColor: 'transparent',
         boxShadow: 'none'
+    },
+    typography: {
+        textTransform: 'none'
     }
 }));
 
 const Header: FunctionComponent = () => {
-    const { header } = useStyles();
+    const { header, typography } = useStyles();
 
     return (
         <>
@@ -23,7 +26,10 @@ const Header: FunctionComponent = () => {
                     <Button
                         href="/"
                     >
-                        <Typography variant="h6">
+                        <Typography
+                            className={typography}
+                            variant="h6"
+                        >
                             MarcoPollo
                         </Typography>
                     </Button>
