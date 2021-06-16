@@ -2,11 +2,14 @@ import React, { memo } from 'react';
 import { Button } from '@material-ui/core';
 
 const LearnMoreButton = () => (
-    <div>
-        <Button variant="contained" color="secondary" href="about">
-            Learn More
-        </Button>
-    </div>
+    <Button
+        variant='contained'
+        color='secondary'
+        href='about'
+        fullWidth={true}
+    >
+        Learn More
+    </Button>
 );
 
 LearnMoreButton.displayName = 'LearnMoreButton';
