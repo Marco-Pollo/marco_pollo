@@ -1,7 +1,11 @@
-import React, {memo} from 'react';
+import React, { memo } from 'react';
+import Header from '../../components/header/Header';
 
 const ResultView = () => (
-    <p>Result</p>
+    <>
+        <Header />
+        <p>Result</p>
+    </>
 );
 
 ResultView.displayName = 'ResultView';

@@ -1,8 +1,12 @@
-import React, {memo} from 'react';
+import React, { memo } from 'react';
 import CategoriesTabs from '../../components/categories-tabs/CategoriesTabs';
+import Header from '../../components/header/Header';
 
 const SelectView = () => (
-    <CategoriesTabs/>
+    <>
+        <Header />
+        <CategoriesTabs />
+    </>
 );
 
 SelectView.displayName = 'SelectView';
