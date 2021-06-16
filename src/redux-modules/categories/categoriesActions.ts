@@ -7,4 +7,4 @@ export const loadCategories = createAsyncThunk(
     async (data, { getState, dispatch, rejectWithValue }) => {
         return categories as Array<Category>;
     },
-)
+);

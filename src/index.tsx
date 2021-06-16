@@ -1,43 +1,17 @@
-/* eslint-disable no-console */
-import React, { JSXElementConstructor } from 'react';
+import React from 'react';
 import ReactDOM from 'react-dom';
-import { Provider } from 'react-redux';
+import './index.css';
 import App from './components/App';
-import pkg from '../package.json';
-import store from './redux-modules/store';
-import { Package } from './utils/init/types';
+import reportWebVitals from './reportWebVitals';
 
-const {
-    project,
-    version
-} = pkg as Package;
+ReactDOM.render(
+  <React.StrictMode>
+    <App />
+  </React.StrictMode>,
+  document.getElementById('root')
+);
 
-const {
-    externalName
-} = project;
-
-const render = (Component: JSXElementConstructor<Record<string, never>>) => {
-    // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access,@typescript-eslint/no-unsafe-call
-    ReactDOM.render(
-        <Provider store={store}>
-            <Component />
-        </Provider>,
-        document.getElementById('app')
-    );
-};
-
-const init = () => {
-    try {
-        // Console log e.g. "MyProject v1.0.0 (1.1.2021, 18:00)" to identify which version actually loaded
-        const date = new Date(process.env.BUILD_DATE as string);
-        console.log(
-            // eslint-disable-next-line max-len
-            `${externalName} v${version} (${date.getDate()}.${date.getMonth()}.${date.getFullYear()}, ${date.getHours()}:${date.getMinutes()})`
-        );
-        render(App);
-    } catch (e) {
-        console.error('[Index] Critical error on app startup', e);
-    }
-};
-
-init();
+// If you want to start measuring performance in your app, pass a function
+// to log results (for example: reportWebVitals(console.log))
+// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
+reportWebVitals();

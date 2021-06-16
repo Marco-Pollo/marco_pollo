@@ -5,7 +5,7 @@ import { FetchState } from '../../utils/fetch';
 
 const categoriesAdapter = createEntityAdapter<Category>({
     selectId: (c) => c.id,
-})
+});
 
 const categoriesSlice = createSlice({
     name: 'categories',

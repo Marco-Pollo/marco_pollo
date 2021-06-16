@@ -7,4 +7,4 @@ export const loadPollen = createAsyncThunk(
     async (data, { getState, dispatch, rejectWithValue }) => {
         return pollen as Array<Pollen>;
     },
-)
+);

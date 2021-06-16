@@ -5,7 +5,7 @@ import { loadPollen } from './pollenActions';
 
 const categoriesAdapter = createEntityAdapter<Pollen>({
     selectId: (c) => c.id,
-})
+});
 
 const pollenSlice = createSlice({
     name: 'pollen',
