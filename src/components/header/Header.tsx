@@ -1,20 +1,10 @@
 import React, { FunctionComponent, memo } from 'react';
 import {
- AppBar, Button, IconButton, makeStyles, Toolbar, Typography
+ AppBar, Button, IconButton, Toolbar, Typography
 } from '@material-ui/core';
 import MenuIcon from '@material-ui/icons/Menu';
+import { useStyles } from '../../constants/styles';
 import './header.scss';
-
-const useStyles = makeStyles((theme) => ({
-    offset: theme.mixins.toolbar,
-    header: {
-        backgroundColor: 'transparent',
-        boxShadow: 'none'
-    },
-    typography: {
-        textTransform: 'none'
-    }
-}));
 
 const Header: FunctionComponent = () => {
     const { header, typography } = useStyles();
