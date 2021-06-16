@@ -29,7 +29,7 @@
         "dev": "chayns-toolkit dev",
         "dev:devtools": "chayns-toolkit dev --devtools",
         "version:increment": "npm version patch -m \":bookmark: Version %s\"",
-        "install:all": "npm install && npm i chayns-doc@latest -D",
+        "install:all": "npm install",
         "format": "prettier . --write",
         "lint": "chayns-toolkit lint",
         "start": "npm run dev"
@@ -41,6 +41,7 @@
         "tabWidth": 4
     },
     "dependencies": {
+        "@material-ui/core": "^4.11.4",
         "@reduxjs/toolkit": "^1.5.0",
         "clsx": "^1.1.1",
         "date-fns": "^2.16.1",
