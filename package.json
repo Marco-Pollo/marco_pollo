@@ -1,0 +1,81 @@
+{
+    "name": "marco_pollo",
+    "version": "0.0.1",
+    "description": "The frontend of a chayns application",
+    "project": {
+        "internalName": "MarcoPollo",
+        "externalName": "MarcoPollo",
+        "loggerGuid": "00000000-0000-0000-0000-000000000000",
+        "subproject": null,
+        "textStringPrefix": "txt_chayns_marcopollo_",
+        "textLibName": "MarcoPollo",
+        "strictLogging": false
+    },
+    "private": true,
+    "keywords": [
+        "chayns",
+        "react",
+        "chayns-toolkit"
+    ],
+    "homepage": "",
+    "bugs": {
+        "url": ""
+    },
+    "repository": {
+        "type": "git",
+        "url": ""
+    },
+    "author": "Tobit Laboratories AG",
+    "main": "index.jsx",
+    "scripts": {
+        "build": "chayns-toolkit build",
+        "build:analyze": "chayns-toolkit build --analyze",
+        "build:debug": "cross-env BUILD_ENV=qa chayns-toolkit build && node publish.js --debug",
+        "dev": "chayns-toolkit dev",
+        "dev:devtools": "chayns-toolkit dev --devtools",
+        "version:increment": "npm version patch -m \":bookmark: Version %s\"",
+        "install:all": "npm install && npm i chayns-doc@latest -D",
+        "format": "prettier . --write",
+        "lint": "chayns-toolkit lint",
+        "start": "npm run dev"
+    },
+    "prettier": {
+        "printWidth": 120,
+        "proseWrap": "always",
+        "singleQuote": true,
+        "tabWidth": 4
+    },
+    "dependencies": {
+        "@chayns/colors": "^1.0.3",
+        "@reduxjs/toolkit": "^1.5.0",
+        "chayns-components": "^4.21.2",
+        "chayns-helper": "^2.18.1-beta.1",
+        "chayns-logger": "^2.8.5",
+        "clsx": "^1.1.1",
+        "date-fns": "^2.16.1",
+        "react": "^17.0.1",
+        "react-dom": "^17.0.1",
+        "react-redux": "^7.2.2"
+    },
+    "devDependencies": {
+        "@types/react": "^17.0.11",
+        "@types/react-dom": "^17.0.7",
+        "@types/react-redux": "^7.1.16",
+        "@types/redux-logger": "^3.0.8",
+        "chayns-doc": "^1.4.5",
+        "chayns-toolkit": "^1.6.3",
+        "cross-env": "^7.0.3",
+        "eslint-config-airbnb": "^18.2.0",
+        "eslint-config-airbnb-base": "^14.2.0",
+        "eslint-plugin-import": "^2.16.0",
+        "eslint-plugin-jsx-a11y": "^6.2.1",
+        "eslint-plugin-react": "^7.22.0",
+        "eslint-plugin-react-hooks": "^4.1.0",
+        "prettier": "^2.1.2",
+        "prettier-plugin-packagejson": "^2.2.9",
+        "prop-types": "^15.7.2",
+        "react-devtools": "^4.10.1",
+        "redux-logger": "^3.0.6",
+        "typescript": "^4.3.2"
+    }
+}

@@ -1,71 +1,51 @@
-# MarcoPollo
+<div align="center">
+    <h1>MarcoPollo</h1>
+    <p>MarcoPollo</p>
+    <a href="https://github.com/TobitSoftware/chayns-toolkit">
+        <img 
+            alt="Managed with chayns-toolkit" 
+            src="https://img.shields.io/badge/managed%20with-chayns--toolkit-%23000?style=for-the-badge"
+        />
+    </a>
+</div>
 
-## Grundlegende Daten der Pollentypen im JSON-Fromat
-```
-[
-	{
-		id: number,
-		name: string,
-		times: {
-			light: {
-				start: string (ISO-8601),
-				end: string (ISO-8601),
-			},
-			mild: {
-				start: string (ISO-8601),
-				end: string (ISO-8601),
-			},
-			strong: {
-				start: string (ISO-8601),
-				end: string (ISO-8601),
-			},
-		},
-	},
-	...
-]
-```
+## Get Started
 
-## Gespeicherte Auswahl des Users (JSON-Fromat)
-```
-[id: number, ...]
-```
+To get started with working on the project first you have to install its dependencies:
 
-## Grundlagen für die Entwicklung der Web-App:
-- [JavaScript](https://developer.mozilla.org/de/docs/Web/JavaScript)
-	- [TypeScript](https://www.typescriptlang.org/) (Typisierung von JavaScript)
-	- Paketverwaltung per [npm](https://www.npmjs.com/)
-	- [React Framework](https://reactjs.org/)
-		- Datenstruktur nach Redux ([react-redux](https://react-redux.js.org/))
-		- Nutzung von "[redux-toolkit](https://redux-toolkit.js.org/)" für Datennormalisierung im Redux-Store & Umsetung weiterer Redux-Konventionen
-
-## Projektstruktur
 ```bash
-src
-├───components
-│   ├───headline
-│   │       Headline.tsx
-│   │		headline.scss
-│   └───...
-├───views
-│   │   App.tsx
-│   ├───landing-page
-│   │       LandingPage.tsx
-│   └───...
-├───constants
-│       pollen.json
-├───redux-modules
-│   │	store.ts
-│   │	rootReducer.ts
-│   └───pollen
-│           pollenActions.ts
-│           pollenSelectors.ts
-│           pollenSlice.ts
-├───types
-│   	pollen.ts
-│	...
-└───utils
-        ...
+npm install
+# or
+npm run install:all
 ```
 
-## Nutzerdaten Speicherung / Pushnachrichten
-Das Speichern der Nutzerdaten und senden von Pushnachrichten wird über [Firebase](https://firebase.google.com/) erfolgen.
+Then you will have the following commands available:
+
+`npm run dev` - This starts the project with a local server for development
+on [`https://localhost:8080/`](http://localhost:8080/).
+
+`npm run build` - This builds your project for production.
+
+`npm run build:analyze` - Runs a build with the BundleAnalyzerPlugin to analyze the bundle size.
+
+`npm run build:debug` - Builds a QA version of your project to `tappqa\www\tappqa.tobit.com\MarcoPollo\Web.Debug\`.
+
+`npm run version:increment` - This increments the version of your project by 0.0.1 and commits the new version to your
+current git branch.
+
+`npm run lint` - Checks your project for errors and code quality.
+
+`npm run format` - Automatically formats all the source code in your project.
+
+---
+
+This project is based on [`chayns-toolkit`](https://github.com/TobitSoftware/chayns-toolkit). If you encounter any
+issues with the toolchain and the commands, please
+[open an issue](https://github.com/TobitSoftware/chayns-toolkit/issues/new).
+
+This project uses `chayns-helper`, a package of helpers. If you have any questions regarding a helper,
+wish to report a bug or request a feature, please
+[open an issue](https://github.com/chincoe/chayns-helper/issues/new). You can look up the source code and a
+documentation **[here](https://github.com/chincoe/chayns-helper)**.
+
+[1]: https://chayns.net
