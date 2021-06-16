@@ -2,6 +2,7 @@
 	{
 		"id": 1,
 		"name": "Hasel",
+		"categoryId": 1,
 		"times": {
 			"light": {
 				"start": "1970-11-15T12:00:00.000Z",
@@ -20,6 +21,7 @@
 	{
 		"id": 2,
 		"name": "Erle",
+		"categoryId": 1,
 		"times": {
 			"light": {
 				"start": "1970-12-01T12:00:00.000Z",
@@ -38,6 +40,7 @@
 	{
 		"id": 3,
 		"name": "Pappel",
+		"categoryId": 1,
 		"times": {
 			"light": {
 				"start": "1970-02-01T12:00:00.000Z",
@@ -56,6 +59,7 @@
 	{
 		"id": 4,
 		"name": "Weide",
+		"categoryId": 1,
 		"times": {
 			"light": {
 				"start": "1970-02-10T12:00:00.000Z",
@@ -74,6 +78,7 @@
 	{
 		"id": 5,
 		"name": "Esche",
+		"categoryId": 1,
 		"times": {
 			"light": {
 				"start": "1970-02-10T12:00:00.000Z",
@@ -92,6 +97,7 @@
 	{
 		"id": 6,
 		"name": "Hainbuche",
+		"categoryId": 1,
 		"times": {
 			"light": {
 				"start": "1970-02-10T12:00:00.000Z",
@@ -110,6 +116,7 @@
 	{
 		"id": 7,
 		"name": "Birke",
+		"categoryId": 1,
 		"times": {
 			"light": {
 				"start": "1970-02-10T12:00:00.000Z",
@@ -128,6 +135,7 @@
 	{
 		"id": 8,
 		"name": "Ulme",
+		"categoryId": 1,
 		"times": {
 			"light": {
 				"start": "1970-02-10T12:00:00.000Z",
@@ -146,6 +154,7 @@
 	{
 		"id": 9,
 		"name": "Buche",
+		"categoryId": 1,
 		"times": {
 			"light": {
 				"start": "1970-02-10T12:00:00.000Z",
@@ -164,6 +173,7 @@
 	{
 		"id": 10,
 		"name": "Platane",
+		"categoryId": 1,
 		"times": {
 			"light": {
 				"start": "1970-02-10T12:00:00.000Z",
@@ -182,6 +192,7 @@
 	{
 		"id": 11,
 		"name": "Linde",
+		"categoryId": 1,
 		"times": {
 			"light": {
 				"start": "1970-02-10T12:00:00.000Z",
@@ -200,6 +211,7 @@
 	{
 		"id": 12,
 		"name": "Eiche",
+		"categoryId": 1,
 		"times": {
 			"light": {
 				"start": "1970-02-10T12:00:00.000Z",
@@ -218,6 +230,7 @@
 	{
 		"id": 13,
 		"name": "Kiefer",
+		"categoryId": 1,
 		"times": {
 			"light": {
 				"start": "1970-02-10T12:00:00.000Z",
@@ -236,6 +249,7 @@
 	{
 		"id": 14,
 		"name": "Gräser",
+		"categoryId": 1,
 		"times": {
 			"light": {
 				"start": "1970-02-10T12:00:00.000Z",
@@ -254,6 +268,7 @@
 	{
 		"id": 15,
 		"name": "Wegerich",
+		"categoryId": 1,
 		"times": {
 			"light": {
 				"start": "1970-02-10T12:00:00.000Z",
@@ -272,6 +287,7 @@
 	{
 		"id": 16,
 		"name": "Roggen",
+		"categoryId": 1,
 		"times": {
 			"light": {
 				"start": "1970-02-10T12:00:00.000Z",
@@ -290,6 +306,7 @@
 	{
 		"id": 17,
 		"name": "Brennnessel",
+		"categoryId": 1,
 		"times": {
 			"light": {
 				"start": "1970-02-10T12:00:00.000Z",
@@ -308,6 +325,7 @@
 	{
 		"id": 18,
 		"name": "Gänsefuß",
+		"categoryId": 1,
 		"times": {
 			"light": {
 				"start": "1970-02-10T12:00:00.000Z",
@@ -326,6 +344,7 @@
 	{
 		"id": 19,
 		"name": "Beifuß",
+		"categoryId": 1,
 		"times": {
 			"light": {
 				"start": "1970-02-10T12:00:00.000Z",
@@ -344,6 +363,7 @@
 	{
 		"id": 20,
 		"name": "Ragweed Ambrosia",
+		"categoryId": 1,
 		"times": {
 			"light": {
 				"start": "1970-02-10T12:00:00.000Z",
@@ -362,6 +382,7 @@
 	{
 		"id": 21,
 		"name": "Biene",
+		"categoryId": 1,
 		"times": {
 			"light": {
 				"start": "1970-02-10T12:00:00.000Z",
@@ -380,6 +401,7 @@
 	{
 		"id": 22,
 		"name": "Hummel",
+		"categoryId": 1,
 		"times": {
 			"light": {
 				"start": "1970-02-10T12:00:00.000Z",
@@ -398,6 +420,7 @@
 	{
 		"id": 23,
 		"name": "Wespe",
+		"categoryId": 1,
 		"times": {
 			"light": {
 				"start": "1970-02-10T12:00:00.000Z",
@@ -416,6 +439,7 @@
 	{
 		"id": 24,
 		"name": "Hornisse",
+		"categoryId": 1,
 		"times": {
 			"light": {
 				"start": "1970-02-10T12:00:00.000Z",
