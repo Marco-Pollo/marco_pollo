@@ -7,10 +7,12 @@ import { createLogger } from 'redux-logger';
 import { IS_DEVELOPMENT, IS_PRODUCTION } from '../constants/environment';
 import categoriesSlice from './categories/categoriesSlice';
 import pollenSlice from './pollen/pollenSlice';
+import userSettingsSlice from './user-settings/userSettingsSlice';
 
 const rootReducer = combineReducers({
     categories: categoriesSlice,
     pollen: pollenSlice,
+    userSettings: userSettingsSlice,
 });
 
 const reduxLogger = createLogger({
