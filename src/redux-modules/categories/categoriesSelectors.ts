@@ -2,7 +2,7 @@
 
 import { RootState } from '../store';
 
-export const selectCategories = (state: RootState) => state.categories;
+export const selectCategories = (state: RootState) => state.categories.entities;
 export const selectCategoryFetchState = (state: RootState) => state.categories.fetchState;
 
 export const selectCategoryIds = (state: RootState) => state.categories.ids;
