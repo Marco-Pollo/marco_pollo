@@ -1,0 +1,9 @@
+$image: 'https://wallpaperboat.com/wp-content/uploads/2019/12/foggy-forest-01.jpg';
+
+.first-page {
+    width: 100%;
+    background-image: url($image);
+    background-position: center;
+    background-size: cover;
+    margin-top: -64px;
+}

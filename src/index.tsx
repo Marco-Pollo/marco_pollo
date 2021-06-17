@@ -1,44 +1,43 @@
-/* eslint-disable no-console */
-import React, { JSXElementConstructor } from 'react';
+import React from 'react';
+import '@fontsource/roboto/100.css';
 import ReactDOM from 'react-dom';
+import { MuiThemeProvider } from '@material-ui/core';
+import CssBaseline from '@material-ui/core/CssBaseline';
 import { Provider } from 'react-redux';
-import App from './components/App';
-import pkg from '../package.json';
+import App from './views/App';
+import reportWebVitals from './reportWebVitals';
+import theme from './constants/theme';
 import store from './redux-modules/store';
-import { Package } from './utils/init/types';
+import { loadCategories } from './redux-modules/categories/categoriesActions';
+import { loadPollen } from './redux-modules/pollen/pollenActions';
+import { loadUserSettings } from './redux-modules/user-settings/userSettingsActions';
+import './index.scss';
 
-const {
-    project,
-    version
-} = pkg as Package;
-
-const {
-    externalName,
-    subproject
-} = project;
-
-const render = (Component: JSXElementConstructor<Record<string, never>>) => {
-    // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access,@typescript-eslint/no-unsafe-call
+const render = () => {
     ReactDOM.render(
-        <Provider store={store}>
-            <Component />
-        </Provider>,
-        document.getElementById('app')
+        <React.StrictMode>
+            <MuiThemeProvider theme={theme}>
+                <CssBaseline />
+                <Provider store={store}>
+                    <App />
+                </Provider>
+            </MuiThemeProvider>
+        </React.StrictMode>,
+        document.getElementById('root')
     );
 };
 
-const init = () => {
-    try {
-        // Console log e.g. "MyProject v1.0.0 (1.1.2021, 18:00)" to identify which version actually loaded
-        const date = new Date(process.env.BUILD_DATE as string);
-        console.log(
-            // eslint-disable-next-line max-len
-            `${externalName}${subproject ? ` ${subproject}` : ''} v${version} (${date.getDate()}.${date.getMonth()}.${date.getFullYear()}, ${date.getHours()}:${date.getMinutes()})`
-        );
-        render(App);
-    } catch (e) {
-        console.error('[Index] Critical error on app startup', e);
-    }
+const init = async () => {
+    render();
+
+    await store.dispatch(loadCategories());
+    await store.dispatch(loadPollen());
+    await store.dispatch(loadUserSettings());
+
+    // If you want to start measuring performance in your app, pass a function
+    // to log results (for example: reportWebVitals(console.log))
+    // or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
+    reportWebVitals();
 };
 
 init();

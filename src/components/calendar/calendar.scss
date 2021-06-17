@@ -1,0 +1,15 @@
+.pollen-calendar {
+    display: flex;
+    justify-content: center;
+
+    &_date {
+        // border-radius: 5px;
+    }
+
+    .MuiPickersStaticWrapper-staticWrapperRoot {
+        background-color: transparent;
+    }
+    .MuiPickersCalendarHeader-iconButton {
+        background-color: transparent;
+    }
+}
