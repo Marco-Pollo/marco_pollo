@@ -1,10 +1,24 @@
-import { createMuiTheme } from '@material-ui/core/styles';
+import { createMuiTheme, responsiveFontSizes  } from '@material-ui/core/styles';
 
 const theme = createMuiTheme({
+    typography: {
+        h2: {
+            fontWeight: 200
+        },
+        h3: {
+            fontWeight: 200
+        },
+        h4: {
+            fontWeight: 200
+        },
+        body1: {
+            fontWeight: 100
+        }
+    },
     palette: {
         type: 'dark',
         background: {
-          default: '#121212'
+            default: '#121212'
         },
         primary: {
             light: '#ed4b82',
@@ -21,4 +35,4 @@ const theme = createMuiTheme({
     }
 });
 
-export default theme;
+export default responsiveFontSizes(theme);
