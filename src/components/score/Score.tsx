@@ -1,9 +1,11 @@
-import React, { FunctionComponent, useState } from 'react';
+import React, { FunctionComponent } from 'react';
 import './score.scss';
 import { Typography } from '@material-ui/core';
+import { useSelector } from 'react-redux';
+import { selectScore } from '../../redux-modules/working-data/workingDataSelectors';
 
 const Score: FunctionComponent<Record<string, never>> = () => {
-    const [score, setScore] = useState<number>(11);
+    const score = useSelector(selectScore);
 
     return (
         <div className="pollen-score">

@@ -27,12 +27,12 @@ const render = () => {
     );
 };
 
-const init = () => {
+const init = async () => {
     render();
 
-    store.dispatch(loadCategories());
-    store.dispatch(loadPollen());
-    store.dispatch(loadUserSettings());
+    await store.dispatch(loadCategories());
+    await store.dispatch(loadPollen());
+    await store.dispatch(loadUserSettings());
 
     // If you want to start measuring performance in your app, pass a function
     // to log results (for example: reportWebVitals(console.log))
