@@ -29,14 +29,4 @@ $image: 'https://wallpaperboat.com/wp-content/uploads/2019/12/foggy-forest-01.jp
             text-align: center;
         }
     }
-
-    &__button {
-        display: grid;
-        place-items: center;
-
-        .home-view__button {
-            margin-top: 20px;
-            max-width: 300px;
-        }
-    }
 }

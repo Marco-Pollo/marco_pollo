@@ -1,4 +1,5 @@
 import React from 'react';
+import '@fontsource/roboto/100.css';
 import ReactDOM from 'react-dom';
 import { MuiThemeProvider } from '@material-ui/core';
 import App from './views/App';
@@ -23,7 +24,7 @@ const render = () => {
         </React.StrictMode>,
         document.getElementById('root')
     );
-}
+};
 
 const init = () => {
     render();
