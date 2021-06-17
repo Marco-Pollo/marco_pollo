@@ -1,36 +1,81 @@
 import { Pollen } from '../types/pollen';
 
-export const GetScoreForDay = (pollen: Array<Pollen>, day: Date): { score: number, pollen: number } => {
-    let score = 0;
-    let pollenCount = 0;
+export const GetScoreForDay = (pollen: Array<Pollen>, day: Date): {
+    light: {
+        onStart: boolean | null,
+        onEnd: boolean | null,
+        isBetween: boolean | null,
+    },
+    mild: {
+        onStart: boolean | null,
+        onEnd: boolean | null,
+        isBetween: boolean | null,
+    },
+    hard: {
+        onStart: boolean | null,
+        onEnd: boolean | null,
+        isBetween: boolean | null,
+    },
+} => {
+    const copyDate = new Date(day);
+    copyDate.setUTCHours(12, 0, 0, 0);
+    copyDate.setUTCFullYear(1970, copyDate.getMonth(), copyDate.getDate());
+
+    const lightBorder = {
+        onStart: null as (null | boolean),
+        onEnd: null as (null | boolean),
+        isBetween: null as (null | boolean)
+    };
+    const mildBorder = {
+        onStart: null as (null | boolean),
+        onEnd: null as (null | boolean),
+        isBetween: null as (null | boolean)
+    };
+    const hardBorder = {
+        onStart: null as (null | boolean),
+        onEnd: null as (null | boolean),
+        isBetween: null as (null | boolean)
+    };
+
     pollen.forEach((p) => {
-        const light = IsBetweenDays(p.times.light.start, p.times.light.end, day);
-        const mild = IsBetweenDays(p.times.light.start, p.times.light.end, day);
-        const hard = IsBetweenDays(p.times.light.start, p.times.light.end, day);
-        // @ts-expect-error it's faster
-        score += (light && 1) + (mild && 2) + (hard && 3);
-        // @ts-expect-error it's faster
-        pollenCount += light || mild || hard;
+        const light = GetDatePosition(p.times.light.start, p.times.light.end, copyDate);
+        const mild = GetDatePosition(p.times.mild.start, p.times.mild.end, copyDate);
+        const hard = GetDatePosition(p.times.strong.start, p.times.strong.end, copyDate);
+
+        if (light.onStart && lightBorder.onStart === null) lightBorder.onStart = true;
+        else if (!light.onStart && light.isBetween) lightBorder.onStart = false;
+        if (light.onEnd && lightBorder.onEnd === null) lightBorder.onEnd = true;
+        else if (!light.onEnd && light.isBetween) lightBorder.onEnd = false;
+        if (light.isBetween) lightBorder.isBetween = true;
+
+        if (mild.onStart && mildBorder.onStart === null) mildBorder.onStart = true;
+        else if (!mild.onStart && mild.isBetween) mildBorder.onStart = false;
+        if (mild.onEnd && mildBorder.onEnd === null) mildBorder.onEnd = true;
+        else if (!mild.onEnd && mild.isBetween) mildBorder.onEnd = false;
+        if (mild.isBetween) mildBorder.isBetween = true;
+
+        if (hard.onStart && hardBorder.onStart === null) hardBorder.onStart = true;
+        else if (!hard.onStart && hard.isBetween) hardBorder.onStart = false;
+        if (hard.onEnd && hardBorder.onEnd === null) hardBorder.onEnd = true;
+        else if (!hard.onEnd && hard.isBetween) hardBorder.onEnd = false;
+        if (hard.isBetween) hardBorder.isBetween = true;
     });
-    return { score, pollen: pollenCount };
+
+    return {
+        light: lightBorder,
+        mild: mildBorder,
+        hard: hardBorder
+    };
 };
-const IsBetweenDays = (start: string, end: string, day: Date): boolean => {
-    const startDate = new Date(start),
-          endDate = new Date(end);
-    const startMonth = startDate.getMonth(),
-          startDay = startDate.getDate(),
-          endMonth = endDate.getMonth(),
-          endDay = endDate.getDate(),
-          currentMonth = day.getMonth(),
-          currentDay = day.getDate();
+const GetDatePosition = (start: string, end: string, date: Date):
+    { isBetween: boolean, onStart: boolean, onEnd: boolean } => {
+    const startDate = new Date(start).getTime();
+    const endDate = new Date(end).getTime();
+    const dateTime = date.getTime();
 
-    if (currentMonth >= startMonth && currentMonth <= endMonth) {
-        if (currentMonth === startMonth)
-            return currentDay >= startDay;
-        if (currentMonth === endMonth)
-            return currentDay <= endDay;
-        return true;
-    }
-
-    return false;
+    return {
+        isBetween: dateTime >= startDate && dateTime <= endDate,
+        onEnd: endDate === dateTime,
+        onStart: startDate === dateTime
+    };
 };

@@ -5,4 +5,11 @@
     &_date {
         // border-radius: 5px;
     }
+
+    .MuiPickersStaticWrapper-staticWrapperRoot {
+        background-color: transparent;
+    }
+    .MuiPickersCalendarHeader-iconButton {
+        background-color: transparent;
+    }
 }
