@@ -6,7 +6,7 @@ import {
     Theme, withStyles,
     WithStyles
 } from '@material-ui/core';
-import { format } from 'date-fns';
+import { format, startOfWeek, endOfWeek, isSameDay } from 'date-fns';
 import { MaterialUiPickersDate } from '@material-ui/pickers/typings/date';
 import { useSelector } from 'react-redux';
 import { GetScoreForDay } from '../../../utils/pollen';
@@ -19,7 +19,7 @@ const styles = createStyles((theme: Theme) => ({
     },
     day: {
         width: 36,
-        height: 36,
+        height: 32,
         fontSize: theme.typography.caption.fontSize,
         margin: '0 2px',
         color: 'inherit',
@@ -41,16 +41,17 @@ const styles = createStyles((theme: Theme) => ({
     },
     firstHighlight: {
         extend: 'highlight',
-        borderTopLeftRadius: '12px',
-        borderBottomLeftRadius: '12px',
+        borderTopLeftRadius: '20px',
+        borderBottomLeftRadius: '20px',
     },
     endHighlight: {
         extend: 'highlight',
-        borderTopRightRadius: '12px',
-        borderBottomRightRadius: '12px',
+        borderTopRightRadius: '20px',
+        borderBottomRightRadius: '20px',
     },
     light: {
         background: 'yellow',
+        margin: '2px 0',
         color: theme.palette.common.black,
     },
     mild: {
@@ -61,6 +62,8 @@ const styles = createStyles((theme: Theme) => ({
         background: 'red',
         color: theme.palette.common.white,
     },
+    startOfWeek: { },
+    endOfWeek: { }
 }));
 interface DayProps extends WithStyles<typeof styles> {
     day: MaterialUiPickersDate;
@@ -84,9 +87,9 @@ const CalendarDay: FunctionComponent<DayProps> = ({
         /* @ts-expect-error no plan */
         [classes.highlight]: score.light.isBetween,
         /* @ts-expect-error no plan */
-        [classes.firstHighlight]: score.light.onStart,
+        [classes.firstHighlight]: score.light.onStart || isSameDay(startOfWeek(day), day),
         /* @ts-expect-error no plan */
-        [classes.endHighlight]: score.light.onEnd,
+        [classes.endHighlight]: score.light.onEnd || isSameDay(endOfWeek(day), day),
         /* @ts-expect-error no plan */
         [classes.light]: score.light.isBetween,
     });
@@ -94,9 +97,9 @@ const CalendarDay: FunctionComponent<DayProps> = ({
         /* @ts-expect-error no plan */
         [classes.highlight]: score.mild.isBetween,
         /* @ts-expect-error no plan */
-        [classes.firstHighlight]: score.mild.onStart,
+        [classes.firstHighlight]: score.mild.onStart || isSameDay(startOfWeek(day), day),
         /* @ts-expect-error no plan */
-        [classes.endHighlight]: score.mild.onEnd,
+        [classes.endHighlight]: score.mild.onEnd || isSameDay(endOfWeek(day), day),
         /* @ts-expect-error no plan */
         [classes.mild]: score.mild.isBetween,
     });
@@ -104,9 +107,9 @@ const CalendarDay: FunctionComponent<DayProps> = ({
         /* @ts-expect-error no plan */
         [classes.highlight]: score.hard.isBetween,
         /* @ts-expect-error no plan */
-        [classes.firstHighlight]: score.hard.onStart,
+        [classes.firstHighlight]: score.hard.onStart || isSameDay(startOfWeek(day), day),
         /* @ts-expect-error no plan */
-        [classes.endHighlight]: score.hard.onEnd,
+        [classes.endHighlight]: score.hard.onEnd || isSameDay(endOfWeek(day), day),
         /* @ts-expect-error no plan */
         [classes.hard]: score.hard.isBetween,
     });
