@@ -1,21 +1,32 @@
 $image: 'https://wallpaperboat.com/wp-content/uploads/2019/12/foggy-forest-01.jpg';
 
 .home-view {
-    overflow-y: scroll;
     height: 100vh;
+    overflow-y: scroll;
     scroll-snap-type: y mandatory;
 
     &__view-port {
-        scroll-snap-align: start;
         display: grid;
         height: 100vh;
         place-items: center;
+        position: relative;
+        scroll-snap-align: start;
 
         &--home {
-            margin-top: -64px;
             background-image: url($image);
             background-position: center;
             background-size: cover;
+            margin-top: -64px;
+        }
+
+        &--scroll-down {
+            bottom: 25px;
+            left: 0;
+            margin-left: auto;
+            margin-right: auto;
+            position: absolute;
+            right: 0;
+            text-align: center;
         }
     }
 
@@ -24,8 +35,8 @@ $image: 'https://wallpaperboat.com/wp-content/uploads/2019/12/foggy-forest-01.jp
         place-items: center;
 
         .home-view__button {
-            max-width: 300px;
             margin-top: 20px;
+            max-width: 300px;
         }
     }
 }
