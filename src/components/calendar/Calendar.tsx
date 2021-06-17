@@ -80,17 +80,33 @@ const Calendar: FunctionComponent<CalProps> = (props) => {
     ) => {
         const { classes } = props;
         const score = GetScoreForDay(pollen.ids.map((id) => pollen.entities[id]!), day as Date);
-        const wrapperClassName = clsx({
+        const wrapperClassNameLight = clsx({
             /* @ts-expect-error no plan */
-            [classes.highlight]: score.light.isBetween || score.mild.isBetween || score.hard.isBetween,
+            [classes.highlight]: score.light.isBetween,
             /* @ts-expect-error no plan */
-            [classes.firstHighlight]: score.light.onStart || score.mild.onStart || score.hard.onStart,
+            [classes.firstHighlight]: score.light.onStart,
             /* @ts-expect-error no plan */
-            [classes.endHighlight]: score.light.onEnd || score.mild.onEnd || score.hard.onEnd,
+            [classes.endHighlight]: score.light.onEnd,
             /* @ts-expect-error no plan */
             [classes.light]: score.light.isBetween,
+        });
+        const wrapperClassNameMild = clsx({
+            /* @ts-expect-error no plan */
+            [classes.highlight]: score.mild.isBetween,
+            /* @ts-expect-error no plan */
+            [classes.firstHighlight]: score.mild.onStart,
+            /* @ts-expect-error no plan */
+            [classes.endHighlight]: score.mild.onEnd,
             /* @ts-expect-error no plan */
             [classes.mild]: score.mild.isBetween,
+        });
+        const wrapperClassNameHard = clsx({
+            /* @ts-expect-error no plan */
+            [classes.highlight]: score.hard.isBetween,
+            /* @ts-expect-error no plan */
+            [classes.firstHighlight]: score.hard.onStart,
+            /* @ts-expect-error no plan */
+            [classes.endHighlight]: score.hard.onEnd,
             /* @ts-expect-error no plan */
             [classes.hard]: score.hard.isBetween,
         });
@@ -103,10 +119,14 @@ const Calendar: FunctionComponent<CalProps> = (props) => {
         });
 
         return (
-            <div className={wrapperClassName}>
-                <IconButton className={dayClassName}>
-                    <span>{format(day as Date, 'd')}</span>
-                </IconButton>
+            <div className={wrapperClassNameLight}>
+                <div className={wrapperClassNameMild}>
+                    <div className={wrapperClassNameHard}>
+                        <IconButton className={dayClassName}>
+                            <span>{format(day as Date, 'd')}</span>
+                        </IconButton>
+                    </div>
+                </div>
             </div>
         );
     };
