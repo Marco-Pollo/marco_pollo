@@ -25,13 +25,11 @@ const styles = createStyles((theme: Theme) => ({
         color: 'inherit',
     },
     customDayHighlight: {
-        position: 'absolute',
-        top: 0,
-        bottom: 0,
-        left: '2px',
-        right: '2px',
-        border: `1px solid ${theme.palette.secondary.main}`,
-        borderRadius: '50%',
+        borderRadius: '12px',
+        backgroundColor: 'rgba(205,205,205,0.50)',
+        '&:hover': {
+            backgroundColor: 'rgba(205,205,205,0.50)',
+        },
     },
     nonCurrentMonthDay: {
         color: theme.palette.text.disabled,
@@ -43,13 +41,13 @@ const styles = createStyles((theme: Theme) => ({
     },
     firstHighlight: {
         extend: 'highlight',
-        borderTopLeftRadius: '50%',
-        borderBottomLeftRadius: '50%',
+        borderTopLeftRadius: '12px',
+        borderBottomLeftRadius: '12px',
     },
     endHighlight: {
         extend: 'highlight',
-        borderTopRightRadius: '50%',
-        borderBottomRightRadius: '50%',
+        borderTopRightRadius: '12px',
+        borderBottomRightRadius: '12px',
     },
     light: {
         background: 'yellow',
@@ -118,6 +116,8 @@ const CalendarDay: FunctionComponent<DayProps> = ({
         [classes.nonCurrentMonthDay]: !dayInCurrentMonth,
         /* @ts-expect-error no plan */
         [classes.highlightNonCurrentMonthDay]: !dayInCurrentMonth && score.light.isBetween,
+        /* @ts-expect-error no plan */
+        [classes.customDayHighlight]: selectedDate.getTime() === day.getTime(),
     });
 
     return (
