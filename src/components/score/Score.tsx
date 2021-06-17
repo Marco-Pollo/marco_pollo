@@ -11,13 +11,13 @@ const Score: FunctionComponent<Record<string, never>> = () => {
         <div className="pollen-score">
             <Typography
                 className="pollen-score_number"
-                variant="h2"
+                variant="h1"
             >
                 {score}
             </Typography>
             <Typography
                 className="pollen-score_text"
-                variant="h5"
+                variant="h4"
             >
                 Score
             </Typography>
