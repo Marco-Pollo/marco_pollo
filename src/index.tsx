@@ -1,15 +1,15 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { MuiThemeProvider } from '@material-ui/core';
+import CssBaseline from '@material-ui/core/CssBaseline';
+import { Provider } from 'react-redux';
 import App from './views/App';
 import reportWebVitals from './reportWebVitals';
 import theme from './constants/theme';
-import { Provider } from 'react-redux';
 import store from './redux-modules/store';
 import { loadCategories } from './redux-modules/categories/categoriesActions';
 import { loadPollen } from './redux-modules/pollen/pollenActions';
-import CssBaseline from '@material-ui/core/CssBaseline';
-import './index.css';
+import './index.scss';
 
 const render = () => {
     ReactDOM.render(
@@ -23,7 +23,7 @@ const render = () => {
         </React.StrictMode>,
         document.getElementById('root')
     );
-}
+};
 
 const init = () => {
     render();

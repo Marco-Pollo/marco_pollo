@@ -1,5 +1,5 @@
 import React, {
- FunctionComponent, memo, useRef, useState
+ FunctionComponent, memo, useState
 } from 'react';
 import {
     AppBar, Button, Drawer, IconButton, Link, MenuItem, Toolbar, Typography
