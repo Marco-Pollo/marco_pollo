@@ -1,8 +1,11 @@
-import { createMuiTheme } from '@material-ui/core/styles';
+import { createMuiTheme, responsiveFontSizes  } from '@material-ui/core/styles';
 
 const theme = createMuiTheme({
     typography: {
         h2: {
+            fontWeight: 200
+        },
+        h3: {
             fontWeight: 200
         },
         h4: {
@@ -32,4 +35,4 @@ const theme = createMuiTheme({
     }
 });
 
-export default theme;
+export default responsiveFontSizes(theme);

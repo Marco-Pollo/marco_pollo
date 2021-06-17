@@ -13,11 +13,11 @@ const SecondPage = () => (
                 spacing={3}
                 md
             >
-                <Grid item sm={10}>
-                    <Typography variant='h3'>
+                <Grid item sm={11} md={10}>
+                    <Typography variant='h2' className='second-page__header'>
                         Sed enim ut sem viverra aliquet eget sit
                     </Typography>
-                    <Typography variant='body1'>
+                    <Typography variant='body1' className='second-page__text'>
                         Sed odio morbi quis commodo odio aenean sed adipiscing.
                         Cursus euismod quis viverra nibh cras pulvinar mattis nunc.
                         Dui accumsan sit amet nulla facilisi morbi tempus iaculis.
