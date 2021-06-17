@@ -9,7 +9,6 @@ import theme from './constants/theme';
 import store from './redux-modules/store';
 import { loadCategories } from './redux-modules/categories/categoriesActions';
 import { loadPollen } from './redux-modules/pollen/pollenActions';
-import CssBaseline from '@material-ui/core/CssBaseline';
 import { loadUserSettings } from './redux-modules/user-settings/userSettingsActions';
 import './index.scss';
 
