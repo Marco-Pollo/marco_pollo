@@ -4,12 +4,91 @@ import DateFnsUtils from '@date-io/date-fns';
 import { DatePicker, MuiPickersUtilsProvider } from '@material-ui/pickers';
 import { MaterialUiPickersDate } from '@material-ui/pickers/typings/date';
 import './calendar.scss';
+import {
+    createStyles, IconButton, Theme, WithStyles, withStyles
+} from '@material-ui/core';
+import clsx from 'clsx';
+import { format } from 'date-fns';
 import { selectPollen } from '../../redux-modules/pollen/pollenSelectors';
 import { GetScoreForDay } from '../../utils/pollen';
 
-const Calendar: FunctionComponent<Record<string, never>> = () => {
+const styles = createStyles((theme: Theme) => ({
+    dayWrapper: {
+        position: 'relative',
+    },
+    day: {
+        width: 36,
+        height: 36,
+        fontSize: theme.typography.caption.fontSize,
+        margin: '0 2px',
+        color: 'inherit',
+    },
+    customDayHighlight: {
+        position: 'absolute',
+        top: 0,
+        bottom: 0,
+        left: '2px',
+        right: '2px',
+        border: `1px solid ${theme.palette.secondary.main}`,
+        borderRadius: '50%',
+    },
+    nonCurrentMonthDay: {
+        color: theme.palette.text.disabled,
+    },
+    highlightNonCurrentMonthDay: {
+        color: '#676767',
+    },
+    highlight: {
+        background: theme.palette.primary.main,
+        color: theme.palette.common.white,
+    },
+    firstHighlight: {
+        extend: 'highlight',
+        borderTopLeftRadius: '50%',
+        borderBottomLeftRadius: '50%',
+    },
+    endHighlight: {
+        extend: 'highlight',
+        borderTopRightRadius: '50%',
+        borderBottomRightRadius: '50%',
+    },
+}));
+type CalProps = WithStyles<typeof styles>;
+
+const Calendar: FunctionComponent<CalProps> = (props) => {
     const [date, setDate] = useState<MaterialUiPickersDate>(new Date());
     const pollen = useSelector(selectPollen);
+
+    const handleChange = (value: MaterialUiPickersDate) => {
+        setDate(value);
+    };
+    const renderDay = (
+        day: MaterialUiPickersDate,
+        selectedDate: MaterialUiPickersDate,
+        dayInCurrentMonth: boolean,
+        dayComponent: Element
+    ) => {
+        const { classes } = props;
+        const score = GetScoreForDay(pollen.ids.map((id) => pollen.entities[id]!), day as Date);
+
+        const wrapperClassName = clsx({
+            [classes.highlight]: score.light.isBetween,
+            [classes.firstHighlight]: score.light.onStart,
+            [classes.endHighlight]: score.light.onEnd,
+        });
+        const dayClassName = clsx(classes.day, {
+            [classes.nonCurrentMonthDay]: !dayInCurrentMonth,
+            [classes.highlightNonCurrentMonthDay]: !dayInCurrentMonth && score.light.isBetween,
+        });
+
+        return (
+            <div className={wrapperClassName}>
+                <IconButton className={dayClassName}>
+                    <span>{format(day as Date, 'd')}</span>
+                </IconButton>
+            </div>
+        );
+    };
 
     return (
         <div className="pollen-calendar">
@@ -18,27 +97,8 @@ const Calendar: FunctionComponent<Record<string, never>> = () => {
                     disableToolbar
                     variant="static"
                     value={date}
-                    onChange={setDate}
-                    renderDay={
-                        (day, selectedDate, dayInCurrentMonth, dayComponent) => {
-                            const score = GetScoreForDay(pollen.ids.map((id) => pollen.entities[id]!), day as Date);
-                            const v = score.score / score.pollen;
-                            let style = {};
-
-                            /*if (v < 2)
-                                style = { backgroundColor: 'yellow' };
-                            else if (v < 3)
-                                style = { backgroundColor: 'orange' };
-                            else if (v > 3)
-                                style = { backgroundColor: 'red' };*/
-
-                            return (
-                                <div className="pollen-calendar_date" style={style}>
-                                    {dayComponent}
-                                </div>
-                            );
-                        }
-                    }
+                    onChange={handleChange}
+                    renderDay={renderDay}
                 />
             </MuiPickersUtilsProvider>
         </div>
@@ -47,4 +107,4 @@ const Calendar: FunctionComponent<Record<string, never>> = () => {
 
 Calendar.displayName = 'Calendar';
 
-export default Calendar;
+export default withStyles(styles)(Calendar);
