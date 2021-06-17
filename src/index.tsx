@@ -9,6 +9,8 @@ import theme from './constants/theme';
 import store from './redux-modules/store';
 import { loadCategories } from './redux-modules/categories/categoriesActions';
 import { loadPollen } from './redux-modules/pollen/pollenActions';
+import CssBaseline from '@material-ui/core/CssBaseline';
+import { loadUserSettings } from './redux-modules/user-settings/userSettingsActions';
 import './index.scss';
 
 const render = () => {
@@ -30,6 +32,7 @@ const init = () => {
 
     store.dispatch(loadCategories());
     store.dispatch(loadPollen());
+    store.dispatch(loadUserSettings());
 
     // If you want to start measuring performance in your app, pass a function
     // to log results (for example: reportWebVitals(console.log))
