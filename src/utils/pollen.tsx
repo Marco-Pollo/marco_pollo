@@ -1,6 +1,7 @@
 import { Pollen } from '../types/pollen';
 
 export const GetScoreForDay = (pollen: Array<Pollen>, day: Date): {
+    score: number,
     light: {
         onStart: boolean | null,
         onEnd: boolean | null,
@@ -17,10 +18,9 @@ export const GetScoreForDay = (pollen: Array<Pollen>, day: Date): {
         isBetween: boolean | null,
     },
 } => {
-    const copyDate = new Date(day);
-    copyDate.setUTCHours(12, 0, 0, 0);
-    copyDate.setUTCFullYear(1970, copyDate.getMonth(), copyDate.getDate());
+    const copyDate = new Date(Date.UTC(1970, day.getMonth(), day.getDate(), 12, 0, 0, 0));
 
+    let score = 0;
     const lightBorder = {
         onStart: null as (null | boolean),
         onEnd: null as (null | boolean),
@@ -59,9 +59,13 @@ export const GetScoreForDay = (pollen: Array<Pollen>, day: Date): {
         if (hard.onEnd && hardBorder.onEnd === null) hardBorder.onEnd = true;
         else if (!hard.onEnd && hard.isBetween) hardBorder.onEnd = false;
         if (hard.isBetween) hardBorder.isBetween = true;
+
+        /* @ts-expect-error it's beautiful */
+        score += (light.isBetween && 1) + (mild.isBetween && 2) + (hard.isBetween && 3);
     });
 
     return {
+        score,
         light: lightBorder,
         mild: mildBorder,
         hard: hardBorder
