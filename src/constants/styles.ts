@@ -13,5 +13,13 @@ export const useStyles = makeStyles((theme) => ({
     menuLink: {
         textDecoration: 'none',
         color: 'inherit'
+    },
+    categoryContainer: {
+        paddingTop: '10px',
+    },
+    pollenItemText: {
+        backgroundColor: 'rgba(0,0,0,0.25)',
+        padding: '2px 10px',
+        width: '100%',
     }
 }));
