@@ -4,6 +4,8 @@ import { UserSettings } from '../../types/userSettings';
 export const loadUserSettings = createAsyncThunk(
     'userSettings/load',
     async (data, { getState, dispatch, rejectWithValue }) => {
-        return {} as UserSettings;
+        return {
+            selectedPollen: [1, 2, 3],
+        } as UserSettings;
     },
-)
+);
