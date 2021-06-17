@@ -1,19 +1,27 @@
 import React, {
  FunctionComponent, memo, useEffect, useState
 } from 'react';
-import { Grid, Typography } from '@material-ui/core';
+import { Grid, Typography, useTheme } from '@material-ui/core';
+import CheckOutlinedIcon from '@material-ui/icons/CheckOutlined';
+import { useDispatch } from 'react-redux';
 import { iPollenItem } from '../../../../types/interfaces';
 import { useAppSelector } from '../../../../redux-modules/hooks';
 import { selectPollenById } from '../../../../redux-modules/pollen/pollenSelectors';
-import './pollenItem.scss';
 import { useStyles } from '../../../../constants/styles';
+import { addToSelection, removeFromSelection } from '../../../../redux-modules/user-settings/userSettingsSlice';
+import './pollenItem.scss';
+import { selectUserPollen } from '../../../../redux-modules/user-settings/userSettingsSelectors';
 
 const PollenItem: FunctionComponent<iPollenItem> = ({ id }) => {
+    const dispatch = useDispatch();
     const pollen = useAppSelector((state) => selectPollenById(state, id));
+    const selection = useAppSelector(selectUserPollen);
 
-    const { pollenItemText } = useStyles();
+    const { pollenItemText, pollenItemIcon } = useStyles();
+    const theme = useTheme();
 
     const [height, setHeight] = useState(150);
+    const [isSelected, setIsSelected] = useState(selection.findIndex((pId) => pId === id) !== -1);
 
     const adjustHeight = () => {
         const element = document.querySelector(`#pollen-item-${pollen?.id}`);
@@ -35,16 +43,51 @@ const PollenItem: FunctionComponent<iPollenItem> = ({ id }) => {
             xl={1}
         >
             <div
-                id={`pollen-item-${pollen?.id}`}
-                className="pollen-item"
+                className="pollen-item-wrapper"
+                onClick={() => {
+                    if (pollen) {
+                        if (isSelected) {
+                            dispatch(removeFromSelection({ id: pollen.id }));
+                        } else {
+                            dispatch(addToSelection({ id: pollen.id }));
+                        }
+                        setIsSelected(!isSelected);
+                    }
+                }}
                 style={{
-                    backgroundImage: `url(${pollen?.image})`,
                     height
                 }}
             >
-                <Typography className={pollenItemText} variant="h6">
-                    {pollen?.name}
-                </Typography>
+                <div
+                    id={`pollen-item-${pollen?.id}`}
+                    className="pollen-item"
+                    style={{
+                        backgroundImage: `url(${pollen?.image})`,
+                        height
+                    }}
+                >
+                    <Typography
+                        className={`pollen-item-text ${pollenItemText}`}
+                        variant="h6"
+                        style={{
+                            backgroundColor: isSelected ? theme.palette.primary.main : 'rgba(0,0,0,0.25)'
+                        }}
+                    >
+                        {pollen?.name}
+                    </Typography>
+                </div>
+                {
+                    isSelected
+                    && (
+                        <CheckOutlinedIcon
+                            className={pollenItemIcon}
+                            style={{
+                                backgroundColor: theme.palette.primary.main,
+                                borderRadius: '50px'
+                            }}
+                        />
+                    )
+                }
             </div>
         </Grid>
     );
