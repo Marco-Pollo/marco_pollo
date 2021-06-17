@@ -4,20 +4,21 @@ import GetStartedButton from '../../../components/get-started-button/GetStartedB
 import '../homeView.scss';
 import './secondPage.scss';
 import { Container, Grid, Typography } from '@material-ui/core';
+import Footer from '../../../components/footer/Footer';
 
 const SecondPage = () => (
-    <div className='second-page'>
-        <Container maxWidth='md'>
+    <div className="home-view__view-port second-page">
+        <Container maxWidth="md">
             <Grid
                 container
                 spacing={3}
                 md
             >
                 <Grid item sm={11} md={10}>
-                    <Typography variant='h2' className='second-page__header'>
+                    <Typography variant="h2" className="second-page__header">
                         Sed enim ut sem viverra aliquet eget sit
                     </Typography>
-                    <Typography variant='body1' className='second-page__text'>
+                    <Typography variant="body1" className="second-page__text">
                         Sed odio morbi quis commodo odio aenean sed adipiscing.
                         Cursus euismod quis viverra nibh cras pulvinar mattis nunc.
                         Dui accumsan sit amet nulla facilisi morbi tempus iaculis.
@@ -26,11 +27,11 @@ const SecondPage = () => (
                     </Typography>
                 </Grid>
                 <Grid
-                    alignItems='center'
+                    alignItems="center"
                     container
-                    direction='row'
+                    direction="row"
                     item
-                    justify='flex-start'
+                    justify="flex-start"
                     spacing={1}
                 >
                     <Grid
@@ -39,7 +40,7 @@ const SecondPage = () => (
                         sm={4}
                         xs={12}
                     >
-                        <div className='second-page__buttons'>
+                        <div className="second-page__buttons">
                             <LearnMoreButton />
                         </div>
                     </Grid>
@@ -49,7 +50,7 @@ const SecondPage = () => (
                         sm={4}
                         xs={12}
                     >
-                        <div className='second-page__buttons'>
+                        <div className="second-page__buttons">
                             <GetStartedButton />
                         </div>
                     </Grid>
