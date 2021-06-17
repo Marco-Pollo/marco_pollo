@@ -39,8 +39,6 @@ const styles = createStyles((theme: Theme) => ({
         color: '#676767',
     },
     highlight: {
-        background: theme.palette.primary.main,
-        color: theme.palette.common.white,
     },
     firstHighlight: {
         extend: 'highlight',
@@ -51,6 +49,18 @@ const styles = createStyles((theme: Theme) => ({
         extend: 'highlight',
         borderTopRightRadius: '50%',
         borderBottomRightRadius: '50%',
+    },
+    light: {
+        background: 'yellow',
+        color: theme.palette.common.white,
+    },
+    mild: {
+        background: 'orange',
+        color: theme.palette.common.white,
+    },
+    hard: {
+        background: 'red',
+        color: theme.palette.common.white,
     },
 }));
 type CalProps = WithStyles<typeof styles>;
@@ -70,14 +80,25 @@ const Calendar: FunctionComponent<CalProps> = (props) => {
     ) => {
         const { classes } = props;
         const score = GetScoreForDay(pollen.ids.map((id) => pollen.entities[id]!), day as Date);
-
         const wrapperClassName = clsx({
-            [classes.highlight]: score.light.isBetween,
-            [classes.firstHighlight]: score.light.onStart,
-            [classes.endHighlight]: score.light.onEnd,
+            /* @ts-expect-error no plan */
+            [classes.highlight]: score.light.isBetween || score.mild.isBetween || score.hard.isBetween,
+            /* @ts-expect-error no plan */
+            [classes.firstHighlight]: score.light.onStart || score.mild.onStart || score.hard.onStart,
+            /* @ts-expect-error no plan */
+            [classes.endHighlight]: score.light.onEnd || score.mild.onEnd || score.hard.onEnd,
+            /* @ts-expect-error no plan */
+            [classes.light]: score.light.isBetween,
+            /* @ts-expect-error no plan */
+            [classes.mild]: score.mild.isBetween,
+            /* @ts-expect-error no plan */
+            [classes.hard]: score.hard.isBetween,
         });
+        /* @ts-expect-error no plan */
         const dayClassName = clsx(classes.day, {
+            /* @ts-expect-error no plan */
             [classes.nonCurrentMonthDay]: !dayInCurrentMonth,
+            /* @ts-expect-error no plan */
             [classes.highlightNonCurrentMonthDay]: !dayInCurrentMonth && score.light.isBetween,
         });
 
@@ -98,6 +119,7 @@ const Calendar: FunctionComponent<CalProps> = (props) => {
                     variant="static"
                     value={date}
                     onChange={handleChange}
+                    /* @ts-expect-error no plan */
                     renderDay={renderDay}
                 />
             </MuiPickersUtilsProvider>
