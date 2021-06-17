@@ -68,12 +68,14 @@ interface DayProps extends WithStyles<typeof styles> {
     day: MaterialUiPickersDate;
     selectedDate: MaterialUiPickersDate;
     dayInCurrentMonth: boolean;
+    handleChange: Function;
 }
 
 const CalendarDay: FunctionComponent<DayProps> = ({
     day,
     selectedDate,
     dayInCurrentMonth,
+    handleChange,
     classes,
 }) => {
     const userSelection = useSelector(selectUserPollen);
@@ -122,7 +124,7 @@ const CalendarDay: FunctionComponent<DayProps> = ({
         <div className={wrapperClassNameLight}>
             <div className={wrapperClassNameMild}>
                 <div className={wrapperClassNameHard}>
-                    <IconButton className={dayClassName}>
+                    <IconButton className={dayClassName} onClick={() => handleChange(day)}>
                         <span>{format(day as Date, 'd')}</span>
                     </IconButton>
                 </div>
