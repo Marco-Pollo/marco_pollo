@@ -1,6 +1,7 @@
 import React, { memo } from 'react';
 import { Typography } from '@material-ui/core';
 import '../homeView.scss';
+import './firstPage.scss';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 
 const FirstPage = ({ secondPage }: any) => {
@@ -11,7 +12,7 @@ const FirstPage = ({ secondPage }: any) => {
     };
 
     return (
-        <div className='home-view__view-port home-view__view-port--home'>
+        <div className='home-view__view-port first-page'>
             <Typography variant='h2' align='center' className='home-view__headline'>
                 MarcoPollo to empower your daily life
             </Typography>
