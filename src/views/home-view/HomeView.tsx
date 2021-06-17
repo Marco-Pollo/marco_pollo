@@ -1,26 +1,24 @@
 import React, { memo } from 'react';
-import LearnMoreButton from '../../components/learn-more-button/LearnMoreButton';
-import GetStartedButton from '../../components/get-started-button/GetStartedButton';
 import Header from '../../components/header/Header';
-import { Typography } from '@material-ui/core';
 import './homeView.scss';
+import SecondPage from './second-page/SecondPage';
+import FirstPage from './first-page/FirstPage';
+import Footer from '../../components/footer/Footer';
 
-const HomeView = () => (
-    <div className="home-view">
-        <Header />
-        <Typography variant='h2' align='center' className='home-view__headline'>
-            MarcoPollo to empower your daily life
-        </Typography>
-        <div className='home-view__button-container'>
-            <div className="home-view__button">
-                <LearnMoreButton />
+const HomeView = () => {
+    const secondPage = React.createRef<HTMLDivElement>();
+
+    return (
+        <div className='home-view'>
+            <Header />
+            <FirstPage secondPage={secondPage} />
+            <div ref={secondPage}>
+                <SecondPage />
             </div>
-            <div className="home-view__button">
-                <GetStartedButton />
-            </div>
+            <Footer/>
         </div>
-    </div>
-);
+    );
+};
 
 HomeView.displayName = 'HomeView';
 

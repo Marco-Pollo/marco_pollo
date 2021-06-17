@@ -1,5 +1,5 @@
 import React, {
- FunctionComponent, memo, useRef, useState
+ FunctionComponent, memo, useState
 } from 'react';
 import {
     AppBar, Button, Drawer, IconButton, Link, MenuItem, Toolbar, Typography
@@ -15,7 +15,7 @@ const Header: FunctionComponent = () => {
 
     return (
         <>
-            <AppBar className={`header ${header}`} position="static">
+            <AppBar className={`header ${header}`} position="sticky">
                 <Toolbar className="toolbar">
                     <Button
                         href="/"

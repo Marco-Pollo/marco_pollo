@@ -1,19 +1,23 @@
 import React from 'react';
+import '@fontsource/roboto/100.css';
 import ReactDOM from 'react-dom';
 import { MuiThemeProvider } from '@material-ui/core';
+import CssBaseline from '@material-ui/core/CssBaseline';
+import { Provider } from 'react-redux';
 import App from './views/App';
 import reportWebVitals from './reportWebVitals';
 import theme from './constants/theme';
-import { Provider } from 'react-redux';
 import store from './redux-modules/store';
 import { loadCategories } from './redux-modules/categories/categoriesActions';
 import { loadPollen } from './redux-modules/pollen/pollenActions';
-import './index.css';
+import { loadUserSettings } from './redux-modules/user-settings/userSettingsActions';
+import './index.scss';
 
 const render = () => {
     ReactDOM.render(
         <React.StrictMode>
             <MuiThemeProvider theme={theme}>
+                <CssBaseline />
                 <Provider store={store}>
                     <App />
                 </Provider>
@@ -21,13 +25,14 @@ const render = () => {
         </React.StrictMode>,
         document.getElementById('root')
     );
-}
+};
 
-const init = () => {
+const init = async () => {
     render();
 
-    store.dispatch(loadCategories());
-    store.dispatch(loadPollen());
+    await store.dispatch(loadCategories());
+    await store.dispatch(loadPollen());
+    await store.dispatch(loadUserSettings());
 
     // If you want to start measuring performance in your app, pass a function
     // to log results (for example: reportWebVitals(console.log))

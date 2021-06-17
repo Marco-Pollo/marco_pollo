@@ -13,5 +13,20 @@ export const useStyles = makeStyles((theme) => ({
     menuLink: {
         textDecoration: 'none',
         color: 'inherit'
+    },
+    categoryContainer: {
+        paddingTop: '10px'
+    },
+    pollenItemText: {
+        padding: '2px 10px',
+        width: '100%'
+    },
+    pollenItemIcon: {
+        position: 'absolute',
+        top: 0,
+        right: 0,
+        margin: 7,
+        padding: 2,
+        scale: '1.2'
     }
 }));

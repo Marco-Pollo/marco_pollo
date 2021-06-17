@@ -1,15 +1,24 @@
-.home-view__button-container {
-    display: grid;
-    place-items: center;
 
-    .home-view__button {
-        max-width: 300px;
-        width: 70%;
-        margin-top: 20px;
+.home-view {
+    height: 100vh;
+    overflow-y: scroll;
+    scroll-snap-type: y mandatory;
+
+    &__view-port {
+        display: grid;
+        height: 100vh;
+        place-items: center;
+        position: relative;
+        scroll-snap-align: start;
+
+        &--scroll-down {
+            bottom: 25px;
+            left: 0;
+            margin-left: auto;
+            margin-right: auto;
+            position: absolute;
+            right: 0;
+            text-align: center;
+        }
     }
-}
-
-.home-view__headline {
-    padding-top: 20%;
-    padding-bottom: 20%;
 }
