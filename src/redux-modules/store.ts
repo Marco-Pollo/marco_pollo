@@ -5,10 +5,16 @@ import {
 } from '@reduxjs/toolkit';
 import { createLogger } from 'redux-logger';
 import { IS_DEVELOPMENT, IS_PRODUCTION } from '../constants/environment';
-import boardReducer from './board/boardSlice';
+import categoriesSlice from './categories/categoriesSlice';
+import pollenSlice from './pollen/pollenSlice';
+import userSettingsSlice from './user-settings/userSettingsSlice';
+import workingDataSlice from './working-data/workingDataSlice';
 
 const rootReducer = combineReducers({
-    board: boardReducer,
+    categories: categoriesSlice,
+    pollen: pollenSlice,
+    userSettings: userSettingsSlice,
+    workingData: workingDataSlice,
 });
 
 const reduxLogger = createLogger({

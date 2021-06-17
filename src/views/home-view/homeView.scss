@@ -1,0 +1,24 @@
+
+.home-view {
+    height: 100vh;
+    overflow-y: scroll;
+    scroll-snap-type: y mandatory;
+
+    &__view-port {
+        display: grid;
+        height: 100vh;
+        place-items: center;
+        position: relative;
+        scroll-snap-align: start;
+
+        &--scroll-down {
+            bottom: 25px;
+            left: 0;
+            margin-left: auto;
+            margin-right: auto;
+            position: absolute;
+            right: 0;
+            text-align: center;
+        }
+    }
+}
