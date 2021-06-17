@@ -21,7 +21,7 @@ const PollenItem: FunctionComponent<iPollenItem> = ({ id }) => {
     const theme = useTheme();
 
     const [height, setHeight] = useState(150);
-    const [isSelected, setIsSelected] = useState(selection.findIndex((pId) => pId === id) !== -1);
+    const isSelected = selection.findIndex((pId) => pId === id) !== -1;
 
     const adjustHeight = () => {
         const element = document.querySelector(`#pollen-item-${pollen?.id}`);
@@ -51,7 +51,6 @@ const PollenItem: FunctionComponent<iPollenItem> = ({ id }) => {
                         } else {
                             dispatch(addToSelection({ id: pollen.id }));
                         }
-                        setIsSelected(!isSelected);
                     }
                 }}
                 style={{
