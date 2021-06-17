@@ -18,9 +18,7 @@ export const GetScoreForDay = (pollen: Array<Pollen>, day: Date): {
         isBetween: boolean | null,
     },
 } => {
-    const copyDate = new Date(day);
-    copyDate.setUTCHours(12, 0, 0, 0);
-    copyDate.setUTCFullYear(1970, copyDate.getMonth(), copyDate.getDate());
+    const copyDate = new Date(Date.UTC(1970, day.getMonth(), day.getDate(), 12, 0, 0, 0));
 
     let score = 0;
     const lightBorder = {
