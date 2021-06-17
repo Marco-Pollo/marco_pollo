@@ -2,6 +2,7 @@ import { createSlice } from '@reduxjs/toolkit';
 import { FetchState } from '../../utils/fetch';
 import { loadUserSettings } from './userSettingsActions';
 import { UserSettings } from '../../types/userSettings';
+import { lsUserSelectionKey } from '../../constants/globals';
 
 const initialState: UserSettings = {
     fetchState: FetchState.INITIAL,
@@ -14,9 +15,11 @@ const userSettingsSlice = createSlice({
     reducers: {
         addToSelection: (draft, { payload }) => {
             draft.selectedPollen.push(payload.id);
+            localStorage.setItem(lsUserSelectionKey, JSON.stringify(draft.selectedPollen));
         },
         removeFromSelection: (draft, { payload }) => {
             draft.selectedPollen = draft.selectedPollen.filter((pollenId) => pollenId !== payload.id);
+            localStorage.setItem(lsUserSelectionKey, JSON.stringify(draft.selectedPollen));
         }
     },
     extraReducers: (builder) => builder
