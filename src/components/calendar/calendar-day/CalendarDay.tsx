@@ -35,7 +35,7 @@ const styles = createStyles((theme: Theme) => ({
         color: theme.palette.text.disabled,
     },
     highlightNonCurrentMonthDay: {
-        color: '#676767',
+        color: '#797979', // #ff8181
     },
     highlight: {
     },
@@ -115,7 +115,7 @@ const CalendarDay: FunctionComponent<DayProps> = ({
         /* @ts-expect-error no plan */
         [classes.nonCurrentMonthDay]: !dayInCurrentMonth,
         /* @ts-expect-error no plan */
-        [classes.highlightNonCurrentMonthDay]: !dayInCurrentMonth && score.light.isBetween,
+        [classes.highlightNonCurrentMonthDay]: !dayInCurrentMonth && (score.light.isBetween && !score.mild.isBetween && !score.hard.isBetween),
         /* @ts-expect-error no plan */
         [classes.customDayHighlight]: selectedDate.getTime() === day.getTime(),
     });
