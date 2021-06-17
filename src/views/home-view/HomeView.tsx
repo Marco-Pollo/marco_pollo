@@ -1,9 +1,8 @@
 import React, { memo } from 'react';
-import LearnMoreButton from '../../components/learn-more-button/LearnMoreButton';
-import GetStartedButton from '../../components/get-started-button/GetStartedButton';
 import Header from '../../components/header/Header';
 import { Typography } from '@material-ui/core';
 import './homeView.scss';
+import SecondPage from './second-page/SecondPage';
 
 const HomeView = () => (
     <div className='home-view'>
@@ -15,12 +14,7 @@ const HomeView = () => (
         </div>
         <div className='home-view__view-port'>
             <div className='home-view__button-container'>
-                <div className='home-view__button'>
-                    <LearnMoreButton />
-                </div>
-                <div className='home-view__button'>
-                    <GetStartedButton />
-                </div>
+                <SecondPage />
             </div>
         </div>
     </div>
