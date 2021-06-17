@@ -3,20 +3,25 @@ import React, {
 } from 'react';
 import { Grid, Typography, useTheme } from '@material-ui/core';
 import CheckOutlinedIcon from '@material-ui/icons/CheckOutlined';
+import { useDispatch } from 'react-redux';
 import { iPollenItem } from '../../../../types/interfaces';
 import { useAppSelector } from '../../../../redux-modules/hooks';
 import { selectPollenById } from '../../../../redux-modules/pollen/pollenSelectors';
 import { useStyles } from '../../../../constants/styles';
+import { addToSelection, removeFromSelection } from '../../../../redux-modules/user-settings/userSettingsSlice';
 import './pollenItem.scss';
+import { selectUserPollen } from '../../../../redux-modules/user-settings/userSettingsSelectors';
 
 const PollenItem: FunctionComponent<iPollenItem> = ({ id }) => {
+    const dispatch = useDispatch();
     const pollen = useAppSelector((state) => selectPollenById(state, id));
+    const selection = useAppSelector(selectUserPollen);
 
     const { pollenItemText, pollenItemIcon } = useStyles();
     const theme = useTheme();
 
     const [height, setHeight] = useState(150);
-    const [isSelected, setIsSelected] = useState(false);
+    const [isSelected, setIsSelected] = useState(selection.findIndex((pId) => pId === id) !== -1);
 
     const adjustHeight = () => {
         const element = document.querySelector(`#pollen-item-${pollen?.id}`);
@@ -39,7 +44,16 @@ const PollenItem: FunctionComponent<iPollenItem> = ({ id }) => {
         >
             <div
                 className="pollen-item-wrapper"
-                onClick={() => { setIsSelected(!isSelected); }}
+                onClick={() => {
+                    if (pollen) {
+                        if (isSelected) {
+                            dispatch(removeFromSelection({ id: pollen.id }));
+                        } else {
+                            dispatch(addToSelection({ id: pollen.id }));
+                        }
+                        setIsSelected(!isSelected);
+                    }
+                }}
                 style={{
                     height
                 }}
