@@ -15,11 +15,18 @@ export const useStyles = makeStyles((theme) => ({
         color: 'inherit'
     },
     categoryContainer: {
-        paddingTop: '10px',
+        paddingTop: '10px'
     },
     pollenItemText: {
-        backgroundColor: 'rgba(0,0,0,0.25)',
         padding: '2px 10px',
-        width: '100%',
+        width: '100%'
+    },
+    pollenItemIcon: {
+        position: 'absolute',
+        top: 0,
+        right: 0,
+        margin: 7,
+        padding: 2,
+        scale: '1.2'
     }
 }));
