@@ -1,11 +1,8 @@
-.second-pageeee {
-    &__buttons {
-        display: grid;
-        place-items: center;
-
-        &__button {
-            margin-top: 20px;
-            max-width: 300px;
-        }
+.second-page {
+    &__header {
+        padding-bottom: 2vh;
+    }
+    &__text {
+        padding-bottom: 3vh;
     }
 }
