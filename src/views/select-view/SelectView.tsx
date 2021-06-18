@@ -9,7 +9,7 @@ const SelectView = () => {
     const userSelection = useAppSelector(selectUserPollen);
     return (
         <>
-            <Header />
+            <Header backgroundColor="black" />
             <CategoriesTabs />
             {userSelection?.length && (<FloatingButton />)}
         </>

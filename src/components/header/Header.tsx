@@ -6,10 +6,6 @@ import {
     Drawer,
     IconButton,
     Link,
-    List,
-    ListItem,
-    ListItemIcon,
-    ListItemText,
     MenuItem,
     Toolbar,
     Typography
@@ -17,16 +13,22 @@ import {
 import MenuIcon from '@material-ui/icons/Menu';
 import { useStyles } from '../../constants/styles';
 import './header.scss';
-import { Home } from '@material-ui/icons';
+import { iHeader } from '../../types/interfaces';
 
-const Header: FunctionComponent = () => {
+const Header: FunctionComponent<iHeader> = ({ backgroundColor = 'transparent' }) => {
     const { header, menuLink, typography, paper } = useStyles();
 
     const [isOpen, setIsOpen] = useState(false);
 
     return (
         <>
-            <AppBar className={`header ${header}`} position="sticky">
+            <AppBar
+                className={`header ${header}`}
+                position="sticky"
+                style={{
+                    backgroundColor
+                }}
+            >
                 <Toolbar className="toolbar">
                     <Button
                         href="/"
