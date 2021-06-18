@@ -26,6 +26,7 @@ const Calendar: FunctionComponent = () => {
                     />
                 ))}
             </div>
+            <div style={{ height: 300 }}/>
         </>
     );
 };

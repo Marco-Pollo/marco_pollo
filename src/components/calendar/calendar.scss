@@ -3,6 +3,10 @@
     justify-content: center;
     flex-direction: column;
 
+    :focus {
+        outline: none!important;
+    }
+
     .MuiContainer-root {
         margin-bottom: 20px;
     }
