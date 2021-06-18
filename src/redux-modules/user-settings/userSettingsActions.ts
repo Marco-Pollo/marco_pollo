@@ -9,12 +9,12 @@ import { RootState } from '../store';
 export const loadUserSettings = createAsyncThunk(
     'userSettings/load',
     async (_, { getState, dispatch }) => {
-        const { pollen, userSettings } = getState() as RootState;
+        const { pollen } = getState() as RootState;
         const str = localStorage.getItem(lsUserSelectionKey) || '[]';
         const selectedPollen = JSON.parse(str as string) as Array<number>;
         dispatch(workingDataActions.setScore(
             // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
-            GetScoreForDay(userSettings.selectedPollen.map((id) => pollen.entities[id]!), new Date())
+            GetScoreForDay(selectedPollen.map((id) => pollen.entities[id]!), new Date())
         ));
         return {
             selectedPollen
