@@ -25,6 +25,15 @@ const styles = createStyles((theme: Theme) => ({
             width: '250px',
             borderRadius: 20
         }
+    },
+    scoreWrapper: {
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'end',
+        position: 'sticky',
+        bottom: 0,
+        right: 0,
+        width: '100%'
     }
 }));
 type ScoreProps = WithStyles<typeof styles>;
@@ -33,20 +42,23 @@ const Score: FunctionComponent<ScoreProps> = ({ classes }) => {
     const score = useAppSelector(selectScore);
 
     return (
-        /* @ts-expect-error no plan */
-        <Container className={clsx('pollen-score', classes.score)}>
-            <Typography
-                className="pollen-score_number"
-                variant="h1"
-            >
-                {score}
-            </Typography>
-            <Typography
-                className="pollen-score_text"
-                variant="h4"
-            >
-                Score
-            </Typography>
+        // @ts-expect-error stupid
+        <Container className={clsx(classes.scoreWrapper)}>
+            {/* @ts-expect-error stupid */}
+            <Container className={clsx('pollen-score', classes.score)}>
+                <Typography
+                    className="pollen-score_number"
+                    variant="h1"
+                >
+                    {score}
+                </Typography>
+                <Typography
+                    className="pollen-score_text"
+                    variant="h4"
+                >
+                    Score
+                </Typography>
+            </Container>
         </Container>
     );
 };
