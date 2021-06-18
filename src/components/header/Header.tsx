@@ -67,8 +67,8 @@ const Header: FunctionComponent = () => {
                         </Toolbar>
                         <Divider />
                         <Link className={menuLink} href="/"><MenuItem>Home</MenuItem></Link>
-                        <Link className={menuLink} href="/select"><MenuItem>Get Started</MenuItem></Link>
                         <Link className={menuLink} href="/about"><MenuItem>About</MenuItem></Link>
+                        <Link className={menuLink} href="/select"><MenuItem>Get Started</MenuItem></Link>
                         <Link className={menuLink} href="/result"><MenuItem>Result</MenuItem></Link>
                     </Drawer>
                 </Toolbar>

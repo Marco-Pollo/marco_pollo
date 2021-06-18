@@ -11,8 +11,7 @@ export const useStyles = makeStyles((theme) => ({
         textTransform: 'none'
     },
     paper: {
-        background: 'black',
-        width: '40%'
+        background: 'black'
     },
     menuLink: {
         textDecoration: 'none',
