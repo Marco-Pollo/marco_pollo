@@ -1,9 +1,18 @@
 .pollen-calendar {
     display: flex;
     justify-content: center;
+    flex-direction: column;
+
+    .MuiContainer-root {
+        margin-bottom: 20px;
+    }
 
     .pollen-field {
         border-radius: 20px;
+
+        &--selected {
+            opacity: .8;
+        }
 
         &.pollen-color-empty {
             fill: #555555;

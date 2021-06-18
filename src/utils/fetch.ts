@@ -3,4 +3,4 @@ export const FetchState = {
     FETCHING: 1,
     FETCHED: 2,
     ERROR: 3
-}
+};
