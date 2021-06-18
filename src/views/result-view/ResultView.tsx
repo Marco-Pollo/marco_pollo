@@ -10,8 +10,8 @@ const ResultView = () => (
         <Header />
         <ResultText/>
         <Calendar />
-        <Score />
         <Footer/>
+        <Score />
     </>
 );
 
