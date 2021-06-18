@@ -1,11 +1,9 @@
 import React, { FunctionComponent, useState } from 'react';
-import DateFnsUtils from '@date-io/date-fns';
-import { DatePicker, MuiPickersUtilsProvider } from '@material-ui/pickers';
 import { MaterialUiPickersDate } from '@material-ui/pickers/typings/date';
 import './calendar.scss';
 import { useDispatch } from 'react-redux';
-import CalendarDay from './calendar-day/CalendarDay';
 import { actionCalcScore } from '../../redux-modules/working-data/workingDataActions';
+import CalendarMonth from './calendar-month/CalendarMonth';
 
 const Calendar: FunctionComponent = () => {
     const dispatch = useDispatch();
@@ -16,24 +14,14 @@ const Calendar: FunctionComponent = () => {
         dispatch(actionCalcScore(value as Date));
     };
     return (
-        <div className="pollen-calendar">
-            <MuiPickersUtilsProvider utils={DateFnsUtils}>
-                <DatePicker
-                    disableToolbar
-                    variant="static"
-                    value={date}
-                    onChange={() => {}}
-                    renderDay={(day, selectedDate, dayInCurrentMonth) => (
-                        <CalendarDay
-                            day={day}
-                            selectedDate={selectedDate}
-                            dayInCurrentMonth={dayInCurrentMonth}
-                            handleChange={handleChange}
-                        />
-                    )}
+        <>
+            <div className="pollen-calendar">
+                <CalendarMonth
+                month={6}
+                year={2021}
                 />
-            </MuiPickersUtilsProvider>
-        </div>
+            </div>
+        </>
     );
 };
 
