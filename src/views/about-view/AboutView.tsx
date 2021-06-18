@@ -58,7 +58,7 @@ const AboutView = () => (
                     <Card style={{ height: '100%', backgroundColor: '#e91e63' }}>
                         <CardContent>
                             <Typography variant="h3">
-                                Our essence
+                                Unsere Essenz
                             </Typography>
                             <Typography variant="body1">
                                 Neque volutpat ac tincidunt vitae semper quis. Lacinia quis vel eros donec ac odio
@@ -71,7 +71,7 @@ const AboutView = () => (
                     <Card style={{ height: '100%', backgroundColor: '#e91e63' }}>
                         <CardContent>
                             <Typography variant="h3">
-                                Our vibe
+                                Unser Vibe
                             </Typography>
                             <Typography variant="body1">
                                 Tristique et egestas quis ipsum suspendisse. Felis bibendum ut tristique et egestas.
