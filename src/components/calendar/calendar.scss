@@ -5,6 +5,10 @@
     .pollen-field {
         border-radius: 20px;
 
+        &--selected {
+            opacity: .8;
+        }
+
         &.pollen-color-empty {
             fill: #555555;
         }

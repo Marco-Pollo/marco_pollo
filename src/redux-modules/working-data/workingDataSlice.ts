@@ -12,6 +12,7 @@ const workingDataSlice = createSlice({
     initialState,
     reducers: {
         setScore: (draft, { payload: score }) => {
+            console.debug(score);
             draft.score = score as number;
         },
     },
