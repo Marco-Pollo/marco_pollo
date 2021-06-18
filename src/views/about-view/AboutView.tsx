@@ -1,6 +1,6 @@
 import React, { memo } from 'react';
 import {
- Box, Card, CardContent, Container, Grid, Typography
+    Box, Card, CardContent, Container, Grid, Typography
 } from '@material-ui/core';
 import Header from '../../components/header/Header';
 import Footer from '../../components/waves/footer-wave/Footer';
@@ -34,10 +34,22 @@ const AboutView = () => (
                     <Card style={{ height: '100%', backgroundColor: '#e91e63' }}>
                         <CardContent>
                             <Typography variant="h3">
-                                Our mission
+                                Unsere Mission
                             </Typography>
                             <Typography variant="body1">
-                                Orci phasellus egestas tellus rutrum. Amet consectetur adipiscing elit duis.
+                                Euch einfach und unkompliziert eine Übersicht über Eure Allergien zu geben.
+                            </Typography>
+                        </CardContent>
+                    </Card>
+                </Grid>
+                <Grid item sm={6} xs={12}>
+                    <Card style={{ height: '100%', backgroundColor: '#e91e63' }}>
+                        <CardContent>
+                            <Typography variant="h3">
+                                Unser Versprechen
+                            </Typography>
+                            <Typography variant="body1">
+                                Wir verkaufen Eure Daten nicht! Wir sammeln sie nicht einmal.
                             </Typography>
                         </CardContent>
                     </Card>
@@ -49,19 +61,8 @@ const AboutView = () => (
                                 Our essence
                             </Typography>
                             <Typography variant="body1">
-                                Neque volutpat ac tincidunt vitae semper quis. Lacinia quis vel eros donec ac odio tempor.
-                            </Typography>
-                        </CardContent>
-                    </Card>
-                </Grid>
-                <Grid item sm={6} xs={12}>
-                    <Card style={{ height: '100%', backgroundColor: '#e91e63' }}>
-                        <CardContent>
-                            <Typography variant="h3">
-                                Our promise
-                            </Typography>
-                            <Typography variant="body1">
-                                Donec ac odio tempor orci. Ut pharetra sit amet aliquam id. Suspendisse potenti nullam ac tortor vitae purus faucibus ornare.
+                                Neque volutpat ac tincidunt vitae semper quis. Lacinia quis vel eros donec ac odio
+                                tempor.
                             </Typography>
                         </CardContent>
                     </Card>
