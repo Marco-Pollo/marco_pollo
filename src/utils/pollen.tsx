@@ -6,13 +6,13 @@ export const GetScoreForDay = (pollen: Array<Pollen>, day: Date): Score => {
 
     let score = 0;
     const light = {
-        score: 0,
+        score: 0
     };
     const mild = {
-        score: 0,
+        score: 0
     };
     const hard = {
-        score: 0,
+        score: 0
     };
 
     pollen.forEach((p) => {
@@ -24,7 +24,7 @@ export const GetScoreForDay = (pollen: Array<Pollen>, day: Date): Score => {
         mild.score += mildPos.isBetween as unknown as number && 2;
         hard.score += hardPos.isBetween as unknown as number && 3;
         /* @ts-expect-error it's beautiful */
-        score += (lightPos.isBetween && 1) + (mildPos.isBetween && 2) + (hardPos.isBetween && 3);
+        score += (hardPos.isBetween && 3) || (mildPos.isBetween && 2) || (lightPos.isBetween && 1);
     });
 
     return {
@@ -41,6 +41,6 @@ const GetDatePosition = (start: string, end: string, date: Date):
     const dateTime = date.getTime();
 
     return {
-        isBetween: dateTime >= startDate && dateTime <= endDate,
+        isBetween: dateTime >= startDate && dateTime <= endDate
     };
 };
