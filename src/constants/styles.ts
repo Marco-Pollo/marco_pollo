@@ -10,6 +10,10 @@ export const useStyles = makeStyles((theme) => ({
     typography: {
         textTransform: 'none'
     },
+    paper: {
+        background: 'black',
+        width: '40%'
+    },
     menuLink: {
         textDecoration: 'none',
         color: 'inherit'
