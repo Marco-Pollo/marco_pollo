@@ -1,9 +1,9 @@
 import React, { FunctionComponent } from 'react';
 import './score.scss';
 import { Container, createStyles, Theme, Typography, WithStyles, withStyles } from '@material-ui/core';
-import { useSelector } from 'react-redux';
 import { selectScore } from '../../redux-modules/working-data/workingDataSelectors';
 import clsx from 'clsx';
+import { useAppSelector } from '../../redux-modules/hooks';
 
 const styles = createStyles((theme: Theme) => ({
     score: {
@@ -21,27 +21,27 @@ const styles = createStyles((theme: Theme) => ({
             bottom: 20,
             right: 20,
             width: '250px',
-            borderRadius: 20,
-        },
+            borderRadius: 20
+        }
     }
 }));
 type ScoreProps = WithStyles<typeof styles>;
 
 const Score: FunctionComponent<ScoreProps> = ({ classes }) => {
-    const score = useSelector(selectScore);
+    const score = useAppSelector(selectScore);
 
     return (
         /* @ts-expect-error no plan */
         <Container className={clsx('pollen-score', classes.score)}>
             <Typography
-                className="pollen-score_number"
-                variant="h1"
+                className='pollen-score_number'
+                variant='h1'
             >
                 {score}
             </Typography>
             <Typography
-                className="pollen-score_text"
-                variant="h4"
+                className='pollen-score_text'
+                variant='h4'
             >
                 Score
             </Typography>
