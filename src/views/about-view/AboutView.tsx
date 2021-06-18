@@ -16,14 +16,11 @@ const AboutView = () => (
                     </Typography>
                 </Box>
                 <Typography variant="body1">
-                    Refinery29 is the leading media and entertainment company
-                    focused on women with a global audience footprint
-                    of 249 million across all platforms. Over the past
-                    14 years, Refinery29 has upended the global media
-                    space by emphasizing diverse storytelling that
-                    delivers refreshing new perspectives to its
-                    audience and drives growth across numerous platforms
-                    for its partners.
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+                    sed do eiusmod tempor incididunt ut labore
+                    et dolore magna aliqua. Ut enim ad minim veniam,
+                    quis nostrud exercitation ullamco laboris nisi
+                    ut aliquip ex ea commodo consequat.
                 </Typography>
             </Box>
             <Grid
@@ -40,7 +37,7 @@ const AboutView = () => (
                                 Our mission
                             </Typography>
                             <Typography variant="body1">
-                                Refinery29 is a catalyst for women to feel, see, and claim their power.
+                                Orci phasellus egestas tellus rutrum. Amet consectetur adipiscing elit duis.
                             </Typography>
                         </CardContent>
                     </Card>
@@ -52,7 +49,7 @@ const AboutView = () => (
                                 Our essence
                             </Typography>
                             <Typography variant="body1">
-                                At our core, Refinery29 operates on Imagination, Individuality, Inclusivity, & Impact.
+                                Neque volutpat ac tincidunt vitae semper quis. Lacinia quis vel eros donec ac odio tempor.
                             </Typography>
                         </CardContent>
                     </Card>
@@ -64,8 +61,7 @@ const AboutView = () => (
                                 Our promise
                             </Typography>
                             <Typography variant="body1">
-                                We deliver optimistic and diverse storytelling, experiences, and points of view to our
-                                audience of smart, curious, passionate women.
+                                Donec ac odio tempor orci. Ut pharetra sit amet aliquam id. Suspendisse potenti nullam ac tortor vitae purus faucibus ornare.
                             </Typography>
                         </CardContent>
                     </Card>
@@ -77,8 +73,7 @@ const AboutView = () => (
                                 Our vibe
                             </Typography>
                             <Typography variant="body1">
-                                At Refinery29, we make magic. We dream it, and then do it—together—every day reinventing
-                                what&apos;s possible.
+                                Tristique et egestas quis ipsum suspendisse. Felis bibendum ut tristique et egestas.
                             </Typography>
                         </CardContent>
                     </Card>
