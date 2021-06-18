@@ -3,6 +3,7 @@ import { Typography } from '@material-ui/core';
 import '../homeView.scss';
 import './firstPage.scss';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
+import BackgroundSVG from './backgroundSVG';
 
 const FirstPage = ({ secondPage }: any) => {
     const handleClick = () => {
@@ -12,8 +13,9 @@ const FirstPage = ({ secondPage }: any) => {
     };
 
     return (
-        <div className='home-view__view-port first-page'>
-            <Typography variant='h2' align='center' className='home-view__headline'>
+        <div className='home-view__view-port home-view__view-port--center first-page'>
+            <BackgroundSVG />
+            <Typography variant='h2' align='center' className='home-view__headline first-page__text'>
                 MarcoPollo to empower your daily life
             </Typography>
             <div
