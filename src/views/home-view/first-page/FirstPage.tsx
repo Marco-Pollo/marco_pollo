@@ -13,14 +13,14 @@ const FirstPage = ({ secondPage }: any) => {
     };
 
     return (
-        <div className='home-view__view-port home-view__view-port--center first-page'>
+        <div className="home-view__view-port home-view__view-port--center first-page">
             <BackgroundSVG />
-            <Typography variant='h2' align='center' className='home-view__headline first-page__text'>
+            <Typography variant="h2" align="center" className="home-view__headline first-page__text">
                 MarcoPollo to empower your daily life
             </Typography>
             <div
                 onClick={handleClick}
-                className='home-view__view-port--scroll-down'
+                className="home-view__view-port--scroll-down"
             >
                 <ExpandMoreIcon />
             </div>

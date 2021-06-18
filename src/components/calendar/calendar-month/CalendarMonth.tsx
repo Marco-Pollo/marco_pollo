@@ -3,15 +3,17 @@ import React, {
 } from 'react';
 import CalendarHeatmap from 'react-calendar-heatmap';
 import { Container, Typography } from '@material-ui/core';
-import { addDays, endOfMonth, format, startOfMonth } from 'date-fns';
+import {
+ addDays, endOfMonth, format, startOfMonth
+} from 'date-fns';
 import { useSelector } from 'react-redux';
 import ReactTooltip from 'react-tooltip';
+import { de } from 'date-fns/locale';
 import { iCalendarMonth } from '../../../types/interfaces';
 import { GetScoreForDay } from '../../../utils/pollen';
 import { selectUserPollen } from '../../../redux-modules/user-settings/userSettingsSelectors';
 import { selectPollen } from '../../../redux-modules/pollen/pollenSelectors';
 import { Score } from '../../../types/pollen';
-import { de } from 'date-fns/locale';
 
 type LocalValues = { date: string, score?: Score };
 
@@ -56,7 +58,7 @@ const CalendarMonth: FunctionComponent<iCalendarMonth> = ({ month, year }) => {
             <Typography
                 variant="h2"
             >
-                {format(date, 'MMMM', { locale: de})}
+                {format(date, 'MMMM', { locale: de })}
             </Typography>
             <CalendarHeatmap
                 showMonthLabels={false}

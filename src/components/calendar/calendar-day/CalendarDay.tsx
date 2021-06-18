@@ -6,7 +6,9 @@ import {
     Theme, withStyles,
     WithStyles
 } from '@material-ui/core';
-import { format, startOfWeek, endOfWeek, isSameDay } from 'date-fns';
+import {
+ format, startOfWeek, endOfWeek, isSameDay
+} from 'date-fns';
 import { MaterialUiPickersDate } from '@material-ui/pickers/typings/date';
 import { useSelector } from 'react-redux';
 import { GetScoreForDay } from '../../../utils/pollen';

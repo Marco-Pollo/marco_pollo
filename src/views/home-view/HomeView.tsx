@@ -9,7 +9,7 @@ const HomeView = () => {
     const secondPage = React.createRef<HTMLDivElement>();
 
     return (
-        <div className='home-view'>
+        <div className="home-view">
             <Header />
             <FirstPage secondPage={secondPage} />
             <div ref={secondPage}>

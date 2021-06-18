@@ -3,10 +3,10 @@ import { Button } from '@material-ui/core';
 
 const LearnMoreButton = () => (
     <Button
-        variant='contained'
-        color='secondary'
-        href='about'
-        fullWidth={true}
+        variant="contained"
+        color="secondary"
+        href="about"
+        fullWidth
     >
         Learn More
     </Button>
