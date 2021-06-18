@@ -1,11 +1,10 @@
 .footer {
     position: static;
     left: 0;
-    bottom: 0;
+    bottom: -3;
     width: 100%;
     z-index: -1;
     scroll-snap-align: start;
-    margin-top: auto;
 }
 
 .box {
