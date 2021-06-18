@@ -1,7 +1,11 @@
-import React, { FunctionComponent, memo, useEffect, useState } from 'react';
+import React, {
+ FunctionComponent, memo, useEffect, useState
+} from 'react';
 import CalendarHeatmap from 'react-calendar-heatmap';
 import { Container, Typography } from '@material-ui/core';
-import { addDays, endOfMonth, format, isSameMonth, startOfMonth } from 'date-fns';
+import {
+ addDays, endOfMonth, format, startOfMonth
+} from 'date-fns';
 import { useDispatch, useSelector } from 'react-redux';
 import ReactTooltip from 'react-tooltip';
 import { de } from 'date-fns/locale';
@@ -11,12 +15,16 @@ import { selectUserPollen } from '../../../redux-modules/user-settings/userSetti
 import { selectPollen } from '../../../redux-modules/pollen/pollenSelectors';
 import { Score } from '../../../types/pollen';
 import { actionCalcScore } from '../../../redux-modules/working-data/workingDataActions';
+import { workingDataActions } from '../../../redux-modules/working-data/workingDataSlice';
+import { useAppSelector } from '../../../redux-modules/hooks';
+import { selectDate } from '../../../redux-modules/working-data/workingDataSelectors';
 
 type LocalValues = { date: string, score?: Score };
 
 const CalendarMonth: FunctionComponent<iCalendarMonth> = ({ month, year }) => {
     const dispatch = useDispatch();
     const userSelection = useSelector(selectUserPollen);
+    const selectedDate = useAppSelector(selectDate);
     const pollen = useSelector(selectPollen);
 
     const yearMonth = `${year}-${month < 10 ? `0${month}` : month}`;
@@ -25,10 +33,6 @@ const CalendarMonth: FunctionComponent<iCalendarMonth> = ({ month, year }) => {
     // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
     const [values, setValues] = useState<Array<LocalValues>>([]);
     const [selection, setSelection] = useState(userSelection.map((id) => pollen.entities[id]!));
-    const [selectedDate, setSelectedDate] = useState(
-        isSameMonth(date, new Date()) ? `${yearMonth}-${new Date().getDate()
-                                                        < 10 ? `0${new Date().getDate()}` : new Date().getDate()}` : ''
-    );
 
     useEffect(() => {
         if (userSelection && pollen?.entities) {
@@ -55,10 +59,10 @@ const CalendarMonth: FunctionComponent<iCalendarMonth> = ({ month, year }) => {
 
     return (
         <Container
-            maxWidth='xs'
+            maxWidth="xs"
         >
             <Typography
-                variant='h2'
+                variant="h2"
             >
                 {format(date, 'MMMM', { locale: de })}
             </Typography>
@@ -73,7 +77,7 @@ const CalendarMonth: FunctionComponent<iCalendarMonth> = ({ month, year }) => {
                     'data-tip': value?.date || ''
                 })}
                 onClick={(event) => {
-                    setSelectedDate(event.date);
+                    dispatch(workingDataActions.setDate(event.date));
                     dispatch(actionCalcScore(new Date(event.date)));
                 }}
                 values={values}

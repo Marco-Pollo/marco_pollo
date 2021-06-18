@@ -1,25 +1,30 @@
-import React, { FunctionComponent, useState } from 'react';
-import { MaterialUiPickersDate } from '@material-ui/pickers/typings/date';
+import React, { FunctionComponent, useEffect, useState } from 'react';
 import './calendar.scss';
-import { useDispatch } from 'react-redux';
-import { actionCalcScore } from '../../redux-modules/working-data/workingDataActions';
+import { addMonths } from 'date-fns';
 import CalendarMonth from './calendar-month/CalendarMonth';
 
 const Calendar: FunctionComponent = () => {
-    const dispatch = useDispatch();
-    const [date, setDate] = useState<MaterialUiPickersDate>(new Date());
+    const [months, setMonths] = useState<Array<{ month: number, year: number }>>([]);
 
-    const handleChange = (value: MaterialUiPickersDate) => {
-        setDate(value);
-        dispatch(actionCalcScore(value as Date));
-    };
+    useEffect(() => {
+        let lDate = new Date();
+        const lMonths = [] as Array<{ month: number, year: number }>;
+        for (let i = 0; i < 12; i++) {
+            lMonths.push({ month: lDate.getMonth() + 1, year: lDate.getFullYear() });
+            lDate = addMonths(lDate, 1);
+        }
+        setMonths(lMonths);
+    }, []);
+
     return (
         <>
             <div className="pollen-calendar">
-                <CalendarMonth
-                month={6}
-                year={2021}
-                />
+                {months.map((month) => (
+                    <CalendarMonth
+                        month={month.month}
+                        year={month.year}
+                    />
+                ))}
             </div>
         </>
     );

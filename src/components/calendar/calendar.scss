@@ -1,6 +1,11 @@
 .pollen-calendar {
     display: flex;
     justify-content: center;
+    flex-direction: column;
+
+    .MuiContainer-root {
+        margin-bottom: 10px;
+    }
 
     .pollen-field {
         border-radius: 20px;
