@@ -2,14 +2,28 @@
     display: flex;
     justify-content: center;
 
-    &_date {
-        // border-radius: 5px;
+    .pollen-field {
+        border-radius: 20px;
+
+        &.pollen-color-empty {
+            fill: #555555;
+        }
+
+        &.pollen-color-1 {
+            fill: #e9ce1e;
+        }
+
+        &.pollen-color-2 {
+            fill: #e97d1e;
+        }
+
+        &.pollen-color-3 {
+            fill: #e91e63;
+        }
+
+        &.pollen-color-4 {
+            fill: #e91e63;
+        }
     }
 
-    .MuiPickersStaticWrapper-staticWrapperRoot {
-        background-color: transparent;
-    }
-    .MuiPickersCalendarHeader-iconButton {
-        background-color: transparent;
-    }
 }

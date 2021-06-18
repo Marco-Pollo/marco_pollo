@@ -3,7 +3,7 @@ import Header from '../../components/header/Header';
 import './homeView.scss';
 import SecondPage from './second-page/SecondPage';
 import FirstPage from './first-page/FirstPage';
-import Footer from '../../components/footer/Footer';
+import Footer from '../../components/waves/footer-wave/Footer';
 
 const HomeView = () => {
     const secondPage = React.createRef<HTMLDivElement>();
