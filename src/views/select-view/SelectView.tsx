@@ -9,16 +9,12 @@ import Footer from '../../components/waves/footer-wave/Footer';
 const SelectView = () => {
     const userSelection = useAppSelector(selectUserPollen);
     return (
-        <div style={{
-            height: '100%',
-            display: 'flex',
-            flexDirection: 'column'
-        }}>
+        <>
             <Header backgroundColor="black" />
             <CategoriesTabs />
             {!!userSelection?.length && (<FloatingButton />)}
             <Footer/>
-        </div>
+        </>
     );
 };
 
