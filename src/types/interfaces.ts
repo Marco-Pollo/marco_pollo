@@ -13,3 +13,7 @@ export interface iCalendarMonth {
     month: number,
     year: number,
 }
+
+export interface iHeader {
+    backgroundColor?: string,
+}
