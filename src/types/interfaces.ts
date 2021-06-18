@@ -8,3 +8,8 @@ export interface iCategoryTab {
 export interface iPollenItem {
     id: number,
 }
+
+export interface iCalendarMonth {
+    month: number,
+    year: number,
+}

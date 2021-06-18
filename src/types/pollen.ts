@@ -9,7 +9,21 @@ export type Pollen = {
         strong: TimeSpan
     },
 };
+
 export type TimeSpan = {
     start: string,
     end: string,
+};
+
+export type Score = {
+    score: number,
+    light: {
+        score: number
+    },
+    mild: {
+        score: number
+    },
+    hard: {
+        score: number
+    }
 };
