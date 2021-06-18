@@ -20,7 +20,14 @@ const CategoriesTabs = () => {
 
     return (
         <>
-            <div>
+            <div
+                style={{
+                    position: 'fixed',
+                    zIndex: 20,
+                    backgroundColor: 'black',
+                    width: '100%'
+                }}
+            >
                 <Tabs
                     value={value}
                     indicatorColor="primary"

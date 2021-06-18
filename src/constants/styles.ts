@@ -18,7 +18,8 @@ export const useStyles = makeStyles((theme) => ({
         color: 'inherit'
     },
     categoryContainer: {
-        paddingTop: '10px'
+        paddingTop: '10px',
+        marginTop: '40px'
     },
     pollenItemText: {
         padding: '2px 10px',
