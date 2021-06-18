@@ -1,12 +1,24 @@
 import { createSlice } from '@reduxjs/toolkit';
+import { Score } from '../../types/pollen';
 
 export interface WorkingData {
-    score: number,
+    score: Score,
     date: string,
 }
 
 const initialState: WorkingData = {
-    score: 0,
+    score: {
+        score: 0,
+        light: {
+            score: 0
+        },
+        mild: {
+            score: 0
+        },
+        hard: {
+            score: 0
+        }
+    },
     date: `${new Date()
         .getFullYear()}-${new Date().getMonth() < 10 ? `0${new Date()
         .getMonth()}` : new Date()
@@ -20,7 +32,7 @@ const workingDataSlice = createSlice({
     initialState,
     reducers: {
         setScore: (draft, { payload: score }) => {
-            draft.score = score as number;
+            draft.score = score as Score;
         },
         setDate: (draft, { payload: date }) => {
             draft.date = date as string;

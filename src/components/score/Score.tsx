@@ -41,16 +41,32 @@ type ScoreProps = WithStyles<typeof styles>;
 const Score: FunctionComponent<ScoreProps> = ({ classes }) => {
     const score = useAppSelector(selectScore);
 
+    const getBackgroundColor = (val: number) => {
+        switch (val) {
+            case 0: return 'rgba(255,255,255,0.1)';
+            case 1: return 'rgba(233,206,30,0.8)';
+            case 2: return 'rgba(233,125,30,0.8)';
+            default: return 'rgba(233,30,99,0.8)';
+        }
+    };
+
     return (
         // @ts-expect-error stupid
         <Container className={clsx(classes.scoreWrapper)}>
-            {/* @ts-expect-error stupid */}
-            <Container className={clsx('pollen-score', classes.score)}>
+            <Container
+                /* @ts-expect-error stupid */
+                className={clsx('pollen-score', classes.score)}
+                style={{
+                    backgroundColor: getBackgroundColor((score?.hard?.score && 3)
+                                                        || (score?.mild?.score && 2)
+                                                        || (score?.light?.score && 1)),
+                }}
+            >
                 <Typography
                     className="pollen-score_number"
                     variant="h1"
                 >
-                    {score}
+                    {score?.score}
                 </Typography>
                 <Typography
                     className="pollen-score_text"
