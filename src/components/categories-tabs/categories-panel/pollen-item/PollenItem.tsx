@@ -40,7 +40,7 @@ const PollenItem: FunctionComponent<iPollenItem> = ({ id }) => {
             sm={4}
             md={3}
             lg={3}
-            xl={1}
+            xl={3}
         >
             <div
                 className="pollen-item-wrapper"
