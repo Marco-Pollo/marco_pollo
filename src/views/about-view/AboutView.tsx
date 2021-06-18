@@ -9,10 +9,12 @@ const AboutView = () => (
     <>
         <Header />
         <Container maxWidth="md">
-            <Box pt={2} pb={3}>
-                <Typography variant="h2">
-                    Hey! We are MarcoPollo
-                </Typography>
+            <Box pt={2} pb={5}>
+                <Box pb={1}>
+                    <Typography variant="h2">
+                        Hey! We are MarcoPollo
+                    </Typography>
+                </Box>
                 <Typography variant="body1">
                     Refinery29 is the leading media and entertainment company
                     focused on women with a global audience footprint
