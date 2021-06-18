@@ -24,14 +24,11 @@ const SecondPage = () => (
             >
                 <Grid item sm={11} md={10}>
                     <Typography variant="h2" className="second-page__header">
-                        Sed enim ut sem viverra aliquet eget sit
+                        What takes your breath away?
                     </Typography>
                     <Typography variant="body1" className="second-page__text">
-                        Sed odio morbi quis commodo odio aenean sed adipiscing.
-                        Cursus euismod quis viverra nibh cras pulvinar mattis nunc.
-                        Dui accumsan sit amet nulla facilisi morbi tempus iaculis.
-                        Sed lectus vestibulum mattis ullamcorper velit sed.
-                        Cras sed felis eget velit aliquet sagittis id consectetur purus.
+                        Wir wollen Dir helfen an Deine Antihistamine zu denken und damit Dein Leben etwas erleichtern.
+                        Wähle dazu einfach aus, worauf Du allergisch bist und dann sagen wir Dir, wann es wie schlimm wird.
                     </Typography>
                 </Grid>
                 <Grid

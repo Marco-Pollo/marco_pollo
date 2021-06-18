@@ -1,6 +1,6 @@
 import React, { memo } from 'react';
 import {
- Box, Card, CardContent, Container, Grid, Typography
+    Box, Card, CardContent, Container, Grid, Typography
 } from '@material-ui/core';
 import Header from '../../components/header/Header';
 import Footer from '../../components/waves/footer-wave/Footer';
@@ -34,10 +34,10 @@ const AboutView = () => (
                     <Card style={{ height: '100%', backgroundColor: '#e91e63' }}>
                         <CardContent>
                             <Typography variant="h3">
-                                Our mission
+                                Unsere Mission
                             </Typography>
                             <Typography variant="body1">
-                                Orci phasellus egestas tellus rutrum. Amet consectetur adipiscing elit duis.
+                                Euch einfach und unkompliziert eine Übersicht über Eure Allergien zu geben.
                             </Typography>
                         </CardContent>
                     </Card>
@@ -46,10 +46,10 @@ const AboutView = () => (
                     <Card style={{ height: '100%', backgroundColor: '#e91e63' }}>
                         <CardContent>
                             <Typography variant="h3">
-                                Our essence
+                                Unser Versprechen
                             </Typography>
                             <Typography variant="body1">
-                                Neque volutpat ac tincidunt vitae semper quis. Lacinia quis vel eros donec ac odio tempor.
+                                Wir verkaufen Eure Daten nicht! Wir sammeln sie nicht einmal.
                             </Typography>
                         </CardContent>
                     </Card>
@@ -58,10 +58,11 @@ const AboutView = () => (
                     <Card style={{ height: '100%', backgroundColor: '#e91e63' }}>
                         <CardContent>
                             <Typography variant="h3">
-                                Our promise
+                                Unsere Essenz
                             </Typography>
                             <Typography variant="body1">
-                                Donec ac odio tempor orci. Ut pharetra sit amet aliquam id. Suspendisse potenti nullam ac tortor vitae purus faucibus ornare.
+                                Neque volutpat ac tincidunt vitae semper quis. Lacinia quis vel eros donec ac odio
+                                tempor.
                             </Typography>
                         </CardContent>
                     </Card>
@@ -70,7 +71,7 @@ const AboutView = () => (
                     <Card style={{ height: '100%', backgroundColor: '#e91e63' }}>
                         <CardContent>
                             <Typography variant="h3">
-                                Our vibe
+                                Unser Vibe
                             </Typography>
                             <Typography variant="body1">
                                 Tristique et egestas quis ipsum suspendisse. Felis bibendum ut tristique et egestas.
