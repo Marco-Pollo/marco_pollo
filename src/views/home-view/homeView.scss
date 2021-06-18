@@ -7,9 +7,12 @@
     &__view-port {
         display: grid;
         height: 100vh;
-        place-items: center;
         position: relative;
         scroll-snap-align: start;
+
+        &--center {
+            place-items: center;
+        }
 
         &--scroll-down {
             bottom: 25px;
