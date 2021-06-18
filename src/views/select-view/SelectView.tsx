@@ -12,7 +12,7 @@ const SelectView = () => {
         <>
             <Header backgroundColor="black" />
             <CategoriesTabs />
-            {userSelection?.length && (<FloatingButton />)}
+            {!!userSelection?.length && (<FloatingButton />)}
             <Footer/>
         </>
     );
