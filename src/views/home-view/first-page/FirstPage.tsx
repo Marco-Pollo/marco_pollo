@@ -22,7 +22,9 @@ const FirstPage = ({ secondPage }: any) => {
                 onClick={handleClick}
                 className="home-view__view-port--scroll-down"
             >
-                <ExpandMoreIcon />
+                <section id="scrollDown" className="demo">
+                    <span></span><span></span><span></span>
+                </section>
             </div>
         </div>
     );
