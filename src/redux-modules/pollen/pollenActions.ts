@@ -4,7 +4,5 @@ import pollen from '../../constants/JSON/pollen.json';
 
 export const loadPollen = createAsyncThunk(
     'pollen/load',
-    async (data, { getState, dispatch, rejectWithValue }) => {
-        return pollen as Array<Pollen>;
-    },
+    async (data, { getState, dispatch, rejectWithValue }) => pollen as Array<Pollen>,
 );
