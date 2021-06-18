@@ -3,10 +3,10 @@ import { Button } from '@material-ui/core';
 
 const GetStartedButton = () => (
     <Button
-        variant='contained'
-        color='primary'
-        href='select'
-        fullWidth={true}
+        variant="contained"
+        color="primary"
+        href="select"
+        fullWidth
     >
         Get Started
     </Button>

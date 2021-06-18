@@ -3,23 +3,32 @@ import React, {
 } from 'react';
 import CalendarHeatmap from 'react-calendar-heatmap';
 import { Container, Typography } from '@material-ui/core';
-import { addDays, endOfMonth, format, startOfMonth } from 'date-fns';
-import { useSelector } from 'react-redux';
+import {
+ addDays, endOfMonth, format, startOfMonth
+} from 'date-fns';
+import { useDispatch, useSelector } from 'react-redux';
 import ReactTooltip from 'react-tooltip';
+import { de } from 'date-fns/locale';
 import { iCalendarMonth } from '../../../types/interfaces';
 import { GetScoreForDay } from '../../../utils/pollen';
 import { selectUserPollen } from '../../../redux-modules/user-settings/userSettingsSelectors';
 import { selectPollen } from '../../../redux-modules/pollen/pollenSelectors';
 import { Score } from '../../../types/pollen';
-import { de } from 'date-fns/locale';
+import { actionCalcScore } from '../../../redux-modules/working-data/workingDataActions';
+import { workingDataActions } from '../../../redux-modules/working-data/workingDataSlice';
+import { useAppSelector } from '../../../redux-modules/hooks';
+import { selectDate } from '../../../redux-modules/working-data/workingDataSelectors';
 
 type LocalValues = { date: string, score?: Score };
 
 const CalendarMonth: FunctionComponent<iCalendarMonth> = ({ month, year }) => {
+    const dispatch = useDispatch();
     const userSelection = useSelector(selectUserPollen);
+    const selectedDate = useAppSelector(selectDate);
     const pollen = useSelector(selectPollen);
 
-    const date = new Date(`${year}-${month < 10 ? `0${month}` : month}-01`);
+    const yearMonth = `${year}-${month < 10 ? `0${month}` : month}`;
+    const date = new Date(`${yearMonth}-01`);
 
     // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
     const [values, setValues] = useState<Array<LocalValues>>([]);
@@ -33,21 +42,20 @@ const CalendarMonth: FunctionComponent<iCalendarMonth> = ({ month, year }) => {
     }, [pollen, userSelection]);
 
     useEffect(() => {
-        const localDate = new Date(`${year}-${month < 10 ? `0${month}` : month}-01`);
+        const localDate = new Date(`${yearMonth}-01`);
         const start = startOfMonth(localDate).getDate();
         const end = endOfMonth(localDate).getDate();
         const vals = [] as Array<LocalValues>;
 
         for (let i = start; i <= end; i++) {
-            const currentDay = new Date(`${year}-${month < 10 ? `0${month}` : month}-${i < 10 ? `0${i}` : i}`);
+            const currentDay = new Date(`${yearMonth}-${i < 10 ? `0${i}` : i}`);
             vals.push({
-                date: `${year}-${month}-${i < 10 ? `0${i}` : i}`,
+                date: `${yearMonth}-${i < 10 ? `0${i}` : i}`,
                 score: selection?.length ? GetScoreForDay(selection, currentDay) : undefined
             });
         }
         setValues(vals);
     }, [month, year, selection]);
-    console.debug(values);
 
     return (
         <Container
@@ -56,7 +64,7 @@ const CalendarMonth: FunctionComponent<iCalendarMonth> = ({ month, year }) => {
             <Typography
                 variant="h2"
             >
-                {format(date, 'MMMM', { locale: de})}
+                {format(date, 'MMMM', { locale: de })}
             </Typography>
             <CalendarHeatmap
                 showMonthLabels={false}
@@ -68,14 +76,24 @@ const CalendarMonth: FunctionComponent<iCalendarMonth> = ({ month, year }) => {
                 tooltipDataAttrs={(value?: LocalValues) => ({
                     'data-tip': value?.date || ''
                 })}
+                onClick={(event) => {
+                    dispatch(workingDataActions.setDate(event.date));
+                    dispatch(actionCalcScore(new Date(event.date)));
+                }}
                 values={values}
                 classForValue={(value) => {
+                    let classNames = 'pollen-field';
                     if (!value?.score?.score) {
-                        return 'pollen-field pollen-color-empty';
+                        classNames += ' pollen-field pollen-color-empty';
+                    } else {
+                        classNames += ` pollen-field pollen-color-${(value.score.hard.score && 3)
+                                                                    || (value.score.mild.score && 2)
+                                                                    || (value.score.light.score && 1)}`;
                     }
-                    return `pollen-field pollen-color-${(value.score.hard.score && 3)
-                                                        || (value.score.mild.score && 2)
-                                                        || (value.score.light.score && 1)}`;
+                    if (value?.date === selectedDate) {
+                        classNames += ' pollen-field--selected';
+                    }
+                    return classNames;
                 }}
                 transformDayElement={(element) => React.cloneElement(element, {
                     rx: 2,

@@ -1,0 +1,5 @@
+RewriteEngine On
+RewriteRule ^(static)($|/) - [L]
+
+# Fallback all other routes to index.html
+RewriteRule ^ index.html [L]

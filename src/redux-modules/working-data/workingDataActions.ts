@@ -8,7 +8,7 @@ export const actionCalcScore = createAsyncThunk(
     async (data: Date, { getState, dispatch }) => {
         const { pollen, userSettings } = getState() as RootState;
         dispatch(workingDataActions.setScore(
-            GetScoreForDay(userSettings.selectedPollen.map((id) => pollen.entities[id]!), data).score
+            GetScoreForDay(userSettings.selectedPollen.map((id) => pollen.entities[id]!), data)
         ));
     },
 );
